@@ -7,7 +7,7 @@ const searchBar = () => {
 
   const searchbar = document.createElement("input");
 
-  /*
+  /* 
         We need a form
         Form takes an input
         Input has a hidden submit button? (maybe instead something else)

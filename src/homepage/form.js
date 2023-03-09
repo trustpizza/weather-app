@@ -29,8 +29,12 @@ const searchBar = () => {
     const searchTarget = searchbar.value;
 
     if (searchTarget) {
-      searchForWeather(searchTarget)
-      
+      const result = searchForWeather(searchTarget);
+
+      result.then(function(response) {
+        console.log(response)
+      })
+
       searchbar.value = ""
     }
   })
@@ -39,12 +43,13 @@ const searchBar = () => {
 };
 
 async function searchForWeather(search) {
+  console.log(search)
   try {
-    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=London&APPID=81b221d07baad085936c6ec899f5fa86", {mode: "cors"})
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&APPID=81b221d07baad085936c6ec899f5fa86`, {mode: "cors"})
   
     const weatherData = await response.json();
 
-    console.log(weatherData)
+    return weatherData;
   } catch(error) {
     console.log(error)
   }

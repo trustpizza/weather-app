@@ -13,3 +13,6 @@ import searchBar from "./homepage/form";
         - After UI is created, populate the areas with information
     3) Implement search functionality
 */
+const content = document.getElementById("content");
+const search = searchBar();
+content.appendChild(search);

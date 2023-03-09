@@ -6,7 +6,7 @@ const SearchBar = () => {
   const form = document.createElement("form");
   form.setAttribute("action", "submit");
   form.id = "searchbar";
-  form.className = "relative mb-3 xl:w-96"
+  form.className = "relative mb-3 xl:w-96 grow"
 
   const searchDiv = document.createElement("div");
   searchDiv.className = "relative"

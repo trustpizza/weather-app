@@ -16,6 +16,6 @@ import homepage from "./homepage/displayHomepage";
 // import("./locations/state-names").then((data) => {
 //     console.log(data)
 // })
-const content = document.getElementById('content');
+const content = document.getElementById("content");
 const display = homepage();
 content.append(display);

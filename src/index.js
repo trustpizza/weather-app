@@ -1,5 +1,5 @@
-import './style.css';
-import searchBar from './homepage/form';
+import "./style.css";
+import searchBar from "./homepage/form";
 /*
     Planning:
 

@@ -1,5 +1,5 @@
 import "./style.css";
-import App from "./components/app";
+import SearchBar from "./homepage/form"
 /*
     Planning:
 
@@ -16,4 +16,5 @@ import App from "./components/app";
 // import("./locations/state-names").then((data) => {
 //     console.log(data)
 // })
-App();
+const container = document.getElementById("content");
+container.appendChild(SearchBar())

@@ -23,7 +23,21 @@ const searchBar = () => {
   searchDiv.append(searchbar, submit);
   form.appendChild(searchDiv);
 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    console.log(e)
+  })
+
   return form;
 };
+
+async function searchForWeather(search) {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export default searchBar;

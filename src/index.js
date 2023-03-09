@@ -1,5 +1,5 @@
 import "./style.css";
-import SearchBar from "./homepage/form"
+import homepage from "./homepage/displayHomepage";
 /*
     Planning:
 
@@ -16,5 +16,6 @@ import SearchBar from "./homepage/form"
 // import("./locations/state-names").then((data) => {
 //     console.log(data)
 // })
-const container = document.getElementById("content");
-container.appendChild(SearchBar())
+const content = document.getElementById('content');
+const display = homepage();
+content.append(display);

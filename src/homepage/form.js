@@ -1,4 +1,6 @@
-const api_key = "81b221d07baad085936c6ec899f5fa86";
+
+
+const api_key = "81b221d07baad085936c6ec899f5fa86"; // This can be public since it's already a public API key
 
 const SearchBar = () => {
   const form = document.createElement("form");
@@ -12,6 +14,11 @@ const SearchBar = () => {
   const searchImgDiv = document.createElement("div");
   searchImgDiv.className =
     "absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+
+  const magnifyingGlass = new Image();
+  magnifyingGlass.className =
+    "w-5 h-5 text-gray-500 dark:text-gray-400"
+  searchImgDiv.append(magnifyingGlass)
 
   const searchbar = document.createElement("input");
   searchbar.setAttribute("type", "text");
@@ -42,7 +49,7 @@ const SearchBar = () => {
     }
   });
 
-  searchDiv.append(searchbar, submit);
+  searchDiv.append(searchImgDiv, searchbar, submit);
   form.appendChild(searchDiv);
 
   return form;

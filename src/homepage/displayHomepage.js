@@ -1,5 +1,7 @@
 const homepage = () => {
-    const display = document.createElement('div');
-
+    const container = document.getElementById("container");
+    
+    const weatherDisplay = document.createElement('div')
+    
     return display;
 }

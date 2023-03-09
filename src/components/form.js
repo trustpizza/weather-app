@@ -1,4 +1,4 @@
-const searchBar = () => {
+const SearchBar = () => {
   const form = document.createElement("form");
   // form.setAttribute("method", "post");
   form.setAttribute("action", "submit");
@@ -9,6 +9,7 @@ const searchBar = () => {
   searchbar.setAttribute("type", "text");
   searchbar.setAttribute("name", "searchbar");
   searchbar.setAttribute("placeholder", "Search for a location");
+  searchbar.id = "searchbar";
 
   const submit = document.createElement("input");
   submit.setAttribute("type", "submit");
@@ -23,36 +24,7 @@ const searchBar = () => {
   searchDiv.append(searchbar, submit);
   form.appendChild(searchDiv);
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const searchTarget = searchbar.value;
-
-    if (searchTarget) {
-      const result = searchForWeather(searchTarget);
-
-      result.then(function(response) {
-        console.log(response)
-      })
-
-      searchbar.value = ""
-    }
-  })
-
   return form;
 };
 
-async function searchForWeather(search) {
-  console.log(search)
-  try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&APPID=81b221d07baad085936c6ec899f5fa86`, {mode: "cors"})
-  
-    const weatherData = await response.json();
-
-    return weatherData;
-  } catch(error) {
-    console.log(error)
-  }
-}
-
-export default searchBar;
+export default SearchBar;

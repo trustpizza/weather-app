@@ -25,8 +25,14 @@ const searchBar = () => {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    
-    console.log(e)
+
+    const searchTarget = searchbar.value;
+
+    if (searchTarget) {
+      searchForWeather(searchTarget)
+      
+      searchbar.value = ""
+    }
   })
 
   return form;
@@ -34,8 +40,12 @@ const searchBar = () => {
 
 async function searchForWeather(search) {
   try {
+    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=London&APPID=81b221d07baad085936c6ec899f5fa86", {mode: "cors"})
+  
+    const weatherData = await response.json();
 
-  } catch (error) {
+    console.log(weatherData)
+  } catch(error) {
     console.log(error)
   }
 }

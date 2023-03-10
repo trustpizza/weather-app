@@ -114,7 +114,7 @@ const WeatherDataDisplay = () => {
 
   const humidityTitle = document.createElement('h3');
   humidityTitle.className = "font-medium text-sm";
-  humidityTitle.textContent = "humidity"
+  humidityTitle.textContent = "Humidity"
 
   const humidity = document.createElement('span');
   humidity.className = "text-sm text-gray-500";

@@ -1,4 +1,5 @@
 import Magnifying from "../photos/magnify.svg"
+import { weatherDisplay } from "./homepage";
 
 const api_key = "81b221d07baad085936c6ec899f5fa86"; // This can be public since it's already a public API key
 

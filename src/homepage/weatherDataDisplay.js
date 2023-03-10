@@ -1,4 +1,8 @@
 import Cloudy from "../photos/weather-cloudy.svg"
+import Sunrise from "../photos/sunrise.svg";
+import Sunset from "../photos/sunset.svg";
+import Wind from "../photos/wind.svg";
+import Humidity from "../photos/humidity.svg"
 
 const WeatherDataDisplay = () => {
   const card = document.createElement("div");
@@ -70,57 +74,25 @@ const WeatherDataDisplay = () => {
   const miscWeatherInfoSection = document.createElement('div');
   miscWeatherInfoSection.className = "flex flex-row justify-between mt-6";
 
-  const sunriseSection = document.createElement('div');
-  sunriseSection.className = "flex flex-col items-center";
-  
-  const sunriseTitle = document.createElement('h3');
-  sunriseTitle.className = "font-medium text-sm";
-  sunriseTitle.textContent = "Sunrise"
+  const sunriseSection = MiscWeatherSectionFactory(Sunrise, "sunrise")
+  const sunrise = MiscWeatherItemFactory('6:43 AM')
 
-  const sunrise = document.createElement('span');
-  sunrise.className = "text-sm text-gray-500";
-  sunrise.textContent = "6:43 AM";
+  sunriseSection.appendChild(sunrise)
 
-  sunriseSection.append(sunriseTitle, sunrise)
+  const sunsetSection = MiscWeatherSectionFactory(Sunset, "sunset")
+  const sunset = MiscWeatherItemFactory('5:49 PM')
 
-  const sunsetSection = document.createElement('div');
-  sunsetSection.className = "flex flex-col items-center";
+  sunsetSection.appendChild(sunset)
 
-  const sunsetTitle = document.createElement('h3');
-  sunsetTitle.className = "font-medium text-sm";
-  sunsetTitle.textContent = "Sunset"
+  const windSection = MiscWeatherSectionFactory(Wind, "wind")
+  const wind = MiscWeatherItemFactory("4mp/h SE")
 
-  const sunset = document.createElement('span');
-  sunset.className = "text-sm text-gray-500";
-  sunset.textContent = "5:49 PM";
+  windSection.appendChild(wind);
 
-  sunsetSection.append(sunsetTitle, sunset)
+  const humiditySection = MiscWeatherSectionFactory(Humidity, "humidity")
+  const humidity = MiscWeatherItemFactory("23%")
 
-  const windSection = document.createElement('div');
-  windSection.className = "flex flex-col items-center";
-  
-  const windTitle = document.createElement('h3');
-  windTitle.className = "font-medium text-sm";
-  windTitle.textContent = "Wind";
-
-  const wind = document.createElement('span');
-  wind.className = "text-sm text-gray-500";
-  wind.textContent = "4mp/h SE";
-
-  windSection.append(windTitle, wind);
-
-  const humiditySection = document.createElement('div');
-  humiditySection.className = "flex flex-col items-center";
-
-  const humidityTitle = document.createElement('h3');
-  humidityTitle.className = "font-medium text-sm";
-  humidityTitle.textContent = "Humidity"
-
-  const humidity = document.createElement('span');
-  humidity.className = "text-sm text-gray-500";
-  humidity.textContent = "23%";
-
-  humiditySection.append(humidityTitle, humidity)
+  humiditySection.appendChild(humidity)
 
   miscWeatherInfoSection.append(sunriseSection, sunsetSection, windSection, humiditySection)
 
@@ -147,6 +119,28 @@ const WeatherDataDisplay = () => {
 function populateWeatherDisplay(objs, data) {
   // update the data
   objs.cityName.textContent = "Boston";
+}
+
+function MiscWeatherSectionFactory(iconSrc, altText) {
+  const section = document.createElement('div');
+  section.className = "flex flex-col items-center";
+
+  const sectionIcon = new Image();
+  sectionIcon.className = "h-8 w-8";
+  sectionIcon.alt = altText;
+  sectionIcon.src = iconSrc;
+
+
+  section.appendChild(sectionIcon);
+  return section
+}
+
+function MiscWeatherItemFactory(text) {
+  const item = document.createElement('span');
+  item.className = "text-sm text-gray-500";
+  item.textContent = text;
+
+  return item;
 }
 
 export { WeatherDataDisplay };

@@ -10,7 +10,6 @@ const homepage = () => {
   searchSection.append(SearchBar());
 
 //   const weatherDisplay = document.createElement("div");
-
   display.append(searchSection)
   return display;
 };

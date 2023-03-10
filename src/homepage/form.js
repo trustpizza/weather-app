@@ -21,7 +21,7 @@ const SearchBar = () => {
   magnifyingGlass.className = "w-5 h-5 text-gray-500 dark:text-gray-400";
   magnifyingGlass.ariaHidden = "true";
   magnifyingGlass.src = Magnifying;
-  magnifyingGlass.alt = "Magnifying Glass Icon"
+  magnifyingGlass.alt = "Magnifying Glass Icon";
   searchImgDiv.append(magnifyingGlass);
 
   const searchbar = document.createElement("input");
@@ -48,6 +48,7 @@ const SearchBar = () => {
 
       result.then((response) => {
         console.log(response);
+        weatherDisplay.update(response);
       });
 
       searchbar.value = "";

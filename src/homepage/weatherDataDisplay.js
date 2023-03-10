@@ -67,7 +67,62 @@ const WeatherDataDisplay = () => {
 
   // Misc Weather Information
 
+  const miscWeatherInfoSection = document.createElement('div');
+  miscWeatherInfoSection.className = "flex flex-row justify-between mt-6";
 
+  const sunriseSection = document.createElement('div');
+  sunriseSection.className = "flex flex-col items-center";
+  
+  const sunriseTitle = document.createElement('h3');
+  sunriseTitle.className = "font-medium text-sm";
+  sunriseTitle.textContent = "Sunrise"
+
+  const sunrise = document.createElement('span');
+  sunrise.className = "text-sm text-gray-500";
+  sunrise.textContent = "6:43 AM";
+
+  sunriseSection.append(sunriseTitle, sunrise)
+
+  const sunsetSection = document.createElement('div');
+  sunsetSection.className = "flex flex-col items-center";
+
+  const sunsetTitle = document.createElement('h3');
+  sunsetTitle.className = "font-medium text-sm";
+  sunsetTitle.textContent = "Sunset"
+
+  const sunset = document.createElement('span');
+  sunset.className = "text-sm text-gray-500";
+  sunset.textContent = "5:49 PM";
+
+  sunsetSection.append(sunsetTitle, sunset)
+
+  const windSection = document.createElement('div');
+  windSection.className = "flex flex-col items-center";
+  
+  const windTitle = document.createElement('h3');
+  windTitle.className = "font-medium text-sm";
+  windTitle.textContent = "Wind";
+
+  const wind = document.createElement('span');
+  wind.className = "text-sm text-gray-500";
+  wind.textContent = "4mp/h SE";
+
+  windSection.append(windTitle, wind);
+
+  const humiditySection = document.createElement('div');
+  humiditySection.className = "flex flex-col items-center";
+
+  const humidityTitle = document.createElement('h3');
+  humidityTitle.className = "font-medium text-sm";
+  humidityTitle.textContent = "humidity"
+
+  const humidity = document.createElement('span');
+  humidity.className = "text-sm text-gray-500";
+  humidity.textContent = "23%";
+
+  humiditySection.append(humidityTitle, humidity)
+
+  miscWeatherInfoSection.append(sunriseSection, sunsetSection, windSection, humiditySection)
 
   // End Misc Weather Info
 
@@ -76,11 +131,15 @@ const WeatherDataDisplay = () => {
       cityName,
       date,
       weatherIcon,
+      wind,
+      humidity,
+      sunrise,
+      sunset,
     };
     populateWeatherDisplay(cardObjs);
   };
 
-  card.append(cityName, date, weatherIconDiv, tempSection);
+  card.append(cityName, date, weatherIconDiv, tempSection, miscWeatherInfoSection);
 
   return { card, update };
 };

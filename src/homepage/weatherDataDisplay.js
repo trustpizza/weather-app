@@ -103,12 +103,12 @@ const WeatherDataDisplay = () => {
       cityName,
       date,
       weatherIcon,
-      wind,
-      humidity,
       sunrise,
       sunset,
+      wind,
+      humidity
     };
-    populateWeatherDisplay(cardObjs);
+    populateWeatherDisplay(cardObjs, data);
   };
 
   card.append(cityName, date, weatherIconDiv, tempSection, miscWeatherInfoSection);
@@ -118,7 +118,7 @@ const WeatherDataDisplay = () => {
 
 function populateWeatherDisplay(objs, data) {
   // update the data
-  objs.cityName.textContent = "Boston";
+  
 }
 
 function MiscWeatherSectionFactory(iconSrc, altText) {

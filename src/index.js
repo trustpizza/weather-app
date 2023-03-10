@@ -1,5 +1,5 @@
 import "./style.css";
-import homepage from "./homepage/displayHomepage";
+import homepage from "./homepage/homepage";
 /*
     Planning:
 

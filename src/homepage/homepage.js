@@ -7,11 +7,14 @@ const homepage = () => {
 
   const searchSection = document.createElement('div');
   searchSection.className = "w-full md:px-20 flex justify-center";
-  searchSection.append(SearchBar());
+
+  const searchbar = SearchBar();
+
+  searchSection.append(searchbar);
 
 //   const weatherDisplay = document.createElement("div");
   display.append(searchSection)
   return display;
-};
+};  
 
 export default homepage;

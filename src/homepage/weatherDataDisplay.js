@@ -20,6 +20,7 @@ const WeatherDataDisplay = () => {
 
   const weatherIcon = new Image();
   weatherIcon.src = Cloudy
+  // Add an ALT to image!
   weatherIcon.className = "w-32 h-32";
 
   weatherIconDiv.appendChild(weatherIcon);
@@ -65,6 +66,8 @@ const WeatherDataDisplay = () => {
   // End Main Temp Section
 
   // Misc Weather Information
+
+
 
   // End Misc Weather Info
 

@@ -137,9 +137,9 @@ function populateWeatherDisplay(objs, data) {
   objs.date.textContent = determineTime(data.dt * 1000);
   objs.weatherIcon.src = Cloudy;
   objs.cloudCoverage.textContent = determineCloudiness(data.clouds.all);
-  objs.highTemp.textContent = "";
-  objs.lowTemp.textContent = "";
-  objs.temp.textContent = "";
+  objs.highTemp.textContent = kelvinToFahrenheit(data.main.temp_max);
+  objs.lowTemp.textContent = kelvinToFahrenheit(data.main.temp_min);
+  objs.temp.textContent = kelvinToFahrenheit(data.main.temp);
   objs.sunrise.textContent = "";
   objs.sunset.textContent = "";
   objs.wind.textContent = "";
@@ -176,8 +176,8 @@ function determineTime(num) {
   const dayOfMonth = date.getDate();
   const year = date.getFullYear();
 
-  const time = dayOfWeek + " " + month + " " + dayOfMonth + " " + year;
-  
+  const time = `${dayOfWeek} ${month} ${dayOfMonth} ${year}`;
+
   return time;
 }
 
@@ -212,6 +212,12 @@ function translateMonthIntToString(int) {
   ];
 
   return monthsArray[int];
+}
+
+function kelvinToFahrenheit(k) {
+  const f = 1.8*(k-273) + 32;
+
+  return `${parseInt(f)}°F`;
 }
 
 function MiscWeatherSectionFactory(iconSrc, altText) {

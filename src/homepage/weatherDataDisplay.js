@@ -109,6 +109,9 @@ const WeatherDataDisplay = () => {
       date,
       weatherIcon,
       cloudCoverage,
+      highTemp,
+      lowTemp,
+      temp,
       sunrise,
       sunset,
       wind,
@@ -131,8 +134,19 @@ const WeatherDataDisplay = () => {
 function populateWeatherDisplay(objs, data) {
   // update the data
   objs.cityName.textContent = data.name;
+  objs.date.textContent = "Friday 10 March 2023"
+  objs.weatherIcon.src = Cloudy;
   objs.cloudCoverage.textContent = determineCloudiness(data.clouds.all);
-  console.log(data);
+  objs.highTemp.textContent = "";
+  objs.lowTemp.textContent = "";
+  objs.temp.textContent = "";
+  objs.sunrise.textContent = "";
+  objs.sunset.textContent = "";
+  objs.wind.textContent = "";
+  objs.humidity.textContent = ""
+  // console.log(data);
+  determineTime(data.dt * 1000)
+  console.log(objs)
 }
 
 function determineCloudiness(percent) {
@@ -141,7 +155,7 @@ function determineCloudiness(percent) {
   } if (percent >= 5 && percent < 25) {
     return "Mostly Sunny";
   } if (percent >= 25 && percent < 50) {
-    return "Partly Cloudy";
+    return "Scattered Clouds";
   } if (percent >= 50 && percent < 69) {
     return "Partly Sunny";
   } if (percent >= 69 && percent < 87) {
@@ -149,6 +163,36 @@ function determineCloudiness(percent) {
   } if (percent >= 87 && percent <= 100) {
     return "Overcast";
   }
+}
+
+function determineTime(num) {
+  const date = new Date(num)
+  const dayOfWeek = translateDayIntToString(date.getDay());
+  const month = date.getMonth();
+  const dayOfMonth = date.getDate();
+  const year = date.getFullYear();
+
+  console.log(dayOfWeek, month)
+}
+
+function translateDayIntToString(int) {
+  const daysArray = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ]
+
+  return daysArray[int]
+}
+
+function translateMonthIntToString(int) {
+  const monthsArray = ["January","February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  
+  return monthsArray[int]
 }
 
 function MiscWeatherSectionFactory(iconSrc, altText) {

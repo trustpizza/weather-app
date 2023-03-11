@@ -50,7 +50,7 @@ const SearchBar = () => {
         console.log(response);
         weatherDisplay.update(response);
       });
-      
+
       searchbar.value = "";
     }
   });

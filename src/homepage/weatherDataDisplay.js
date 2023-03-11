@@ -134,7 +134,7 @@ const WeatherDataDisplay = () => {
 function populateWeatherDisplay(objs, data) {
   // update the data
   objs.cityName.textContent = data.name;
-  objs.date.textContent = "Friday 10 March 2023"
+  objs.date.textContent = "Friday 10 March 2023";
   objs.weatherIcon.src = Cloudy;
   objs.cloudCoverage.textContent = determineCloudiness(data.clouds.all);
   objs.highTemp.textContent = "";
@@ -143,36 +143,41 @@ function populateWeatherDisplay(objs, data) {
   objs.sunrise.textContent = "";
   objs.sunset.textContent = "";
   objs.wind.textContent = "";
-  objs.humidity.textContent = ""
+  objs.humidity.textContent = "";
   // console.log(data);
-  determineTime(data.dt * 1000)
-  console.log(objs)
+  determineTime(data.dt * 1000);
+  console.log(objs);
 }
 
 function determineCloudiness(percent) {
   if (percent >= 0 && percent < 5) {
     return "Sunny";
-  } if (percent >= 5 && percent < 25) {
+  }
+  if (percent >= 5 && percent < 25) {
     return "Mostly Sunny";
-  } if (percent >= 25 && percent < 50) {
+  }
+  if (percent >= 25 && percent < 50) {
     return "Scattered Clouds";
-  } if (percent >= 50 && percent < 69) {
+  }
+  if (percent >= 50 && percent < 69) {
     return "Partly Sunny";
-  } if (percent >= 69 && percent < 87) {
+  }
+  if (percent >= 69 && percent < 87) {
     return "Mostly Cloudy";
-  } if (percent >= 87 && percent <= 100) {
+  }
+  if (percent >= 87 && percent <= 100) {
     return "Overcast";
   }
 }
 
 function determineTime(num) {
-  const date = new Date(num)
+  const date = new Date(num);
   const dayOfWeek = translateDayIntToString(date.getDay());
   const month = date.getMonth();
   const dayOfMonth = date.getDate();
   const year = date.getFullYear();
 
-  console.log(dayOfWeek, month)
+  console.log(dayOfWeek, month);
 }
 
 function translateDayIntToString(int) {
@@ -183,16 +188,29 @@ function translateDayIntToString(int) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
-  ]
+    "Saturday",
+  ];
 
-  return daysArray[int]
+  return daysArray[int];
 }
 
 function translateMonthIntToString(int) {
-  const monthsArray = ["January","February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  
-  return monthsArray[int]
+  const monthsArray = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  return monthsArray[int];
 }
 
 function MiscWeatherSectionFactory(iconSrc, altText) {

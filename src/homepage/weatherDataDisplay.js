@@ -143,7 +143,7 @@ function populateWeatherDisplay(objs, data) {
   objs.sunrise.textContent = getTimeFromDayInstance(data.sys.sunrise * 1000);
   objs.sunset.textContent = getTimeFromDayInstance(data.sys.sunset * 1000);
   objs.wind.textContent = "";
-  objs.humidity.textContent = "";
+  objs.humidity.textContent = `${data.main.humidity}%`;
   // console.log(data);
   // console.log(objs);
 }

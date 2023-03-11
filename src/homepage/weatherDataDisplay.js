@@ -134,7 +134,7 @@ const WeatherDataDisplay = () => {
 function populateWeatherDisplay(objs, data) {
   // update the data
   objs.cityName.textContent = data.name;
-  objs.date.textContent = "Friday 10 March 2023";
+  objs.date.textContent = determineTime(data.dt * 1000);
   objs.weatherIcon.src = Cloudy;
   objs.cloudCoverage.textContent = determineCloudiness(data.clouds.all);
   objs.highTemp.textContent = "";
@@ -145,8 +145,7 @@ function populateWeatherDisplay(objs, data) {
   objs.wind.textContent = "";
   objs.humidity.textContent = "";
   // console.log(data);
-  determineTime(data.dt * 1000);
-  console.log(objs);
+  // console.log(objs);
 }
 
 function determineCloudiness(percent) {
@@ -173,11 +172,13 @@ function determineCloudiness(percent) {
 function determineTime(num) {
   const date = new Date(num);
   const dayOfWeek = translateDayIntToString(date.getDay());
-  const month = date.getMonth();
+  const month = translateMonthIntToString(date.getMonth());
   const dayOfMonth = date.getDate();
   const year = date.getFullYear();
 
-  console.log(dayOfWeek, month);
+  const time = dayOfWeek + " " + month + " " + dayOfMonth + " " + year;
+  
+  return time;
 }
 
 function translateDayIntToString(int) {

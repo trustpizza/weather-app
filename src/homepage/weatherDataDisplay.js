@@ -140,8 +140,8 @@ function populateWeatherDisplay(objs, data) {
   objs.highTemp.textContent = kelvinToFahrenheit(data.main.temp_max);
   objs.lowTemp.textContent = kelvinToFahrenheit(data.main.temp_min);
   objs.temp.textContent = kelvinToFahrenheit(data.main.temp);
-  objs.sunrise.textContent = "";
-  objs.sunset.textContent = "";
+  objs.sunrise.textContent = getTimeFromDayInstance(data.sys.sunrise * 1000);
+  objs.sunset.textContent = getTimeFromDayInstance(data.sys.sunset * 1000);
   objs.wind.textContent = "";
   objs.humidity.textContent = "";
   // console.log(data);
@@ -218,6 +218,20 @@ function kelvinToFahrenheit(k) {
   const f = 1.8*(k-273) + 32;
 
   return `${parseInt(f)}°F`;
+}
+
+function getTimeFromDayInstance(int) {
+  const date = new Date(int);
+  const time = date.toLocaleTimeString();
+  const removeSecondsArr = time.split('');
+
+  if (removeSecondsArr.length > 10) {
+    removeSecondsArr.splice(5,3)
+    return removeSecondsArr.join('')
+  } else {
+    removeSecondsArr.splice(4,3)
+    return removeSecondsArr.join('')
+  }
 }
 
 function MiscWeatherSectionFactory(iconSrc, altText) {

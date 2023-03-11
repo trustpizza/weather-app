@@ -142,10 +142,23 @@ function populateWeatherDisplay(objs, data) {
   objs.temp.textContent = kelvinToFahrenheit(data.main.temp);
   objs.sunrise.textContent = getTimeFromDayInstance(data.sys.sunrise * 1000);
   objs.sunset.textContent = getTimeFromDayInstance(data.sys.sunset * 1000);
-  objs.wind.textContent = "";
+  objs.wind.textContent = determineWindSpeedAndDirection(data.wind);
   objs.humidity.textContent = `${data.main.humidity}%`;
   // console.log(data);
   // console.log(objs);
+}
+
+function determineWindSpeedAndDirection(wind) {
+  const speed = Math.round(wind.speed)
+  const direction = degToCompass(wind.deg)
+ 
+  return `${speed}mp/h ${direction}`
+}
+
+function degToCompass(num) {
+  var val = Math.floor((num / 22.5) + 0.5);
+  var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+  return arr[(val % 16)];
 }
 
 function determineCloudiness(percent) {

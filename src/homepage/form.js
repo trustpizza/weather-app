@@ -44,9 +44,9 @@ const SearchBar = () => {
     const searchTarget = searchbar.value;
 
     if (searchTarget) {
-      const result = searchForWeather(searchTarget);
+      // const result = searchForWeather(searchTarget);
       // const result = searchForForecast();
-
+      const result = searchForCity();
       result.then((response) => {
         console.log(response);
         // weatherDisplay.update(response);
@@ -91,6 +91,24 @@ async function searchForForecast() {
 
     return forecast;
   } catch (error) {
+    console.log(error)
+  }
+}
+
+async function searchForCity() {
+  const cityName = "boston";
+  const stateCode = "Ma";
+  const countryCode = "US"
+
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},${countryCode}&limit=5&appid=${api_key}`
+    )
+
+    const city = await response.json();
+
+    return city
+  } catch(error) {
     console.log(error)
   }
 }

@@ -19,6 +19,6 @@ import Footer from "./homepage/footer";
 // })
 const content = document.getElementById("content");
 const display = homepage();
-const footer = Footer()
+const footer = Footer();
 
 content.append(display, footer);

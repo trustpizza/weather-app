@@ -149,16 +149,33 @@ function populateWeatherDisplay(objs, data) {
 }
 
 function determineWindSpeedAndDirection(wind) {
-  const speed = Math.round(wind.speed)
-  const direction = degToCompass(wind.deg)
- 
-  return `${speed}mp/h ${direction}`
+  const speed = Math.round(wind.speed);
+  const direction = degToCompass(wind.deg);
+
+  return `${speed}mp/h ${direction}`;
 }
 
 function degToCompass(num) {
-  var val = Math.floor((num / 22.5) + 0.5);
-  var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-  return arr[(val % 16)];
+  const val = Math.floor(num / 22.5 + 0.5);
+  const arr = [
+    "N",
+    "NNE",
+    "NE",
+    "ENE",
+    "E",
+    "ESE",
+    "SE",
+    "SSE",
+    "S",
+    "SSW",
+    "SW",
+    "WSW",
+    "W",
+    "WNW",
+    "NW",
+    "NNW",
+  ];
+  return arr[val % 16];
 }
 
 function determineCloudiness(percent) {
@@ -228,7 +245,7 @@ function translateMonthIntToString(int) {
 }
 
 function kelvinToFahrenheit(k) {
-  const f = 1.8*(k-273) + 32;
+  const f = 1.8 * (k - 273) + 32;
 
   return `${parseInt(f)}°F`;
 }
@@ -236,15 +253,15 @@ function kelvinToFahrenheit(k) {
 function getTimeFromDayInstance(int) {
   const date = new Date(int);
   const time = date.toLocaleTimeString();
-  const removeSecondsArr = time.split('');
+  const removeSecondsArr = time.split("");
 
   if (removeSecondsArr.length > 10) {
-    removeSecondsArr.splice(5,3)
-    return removeSecondsArr.join('')
-  } else {
-    removeSecondsArr.splice(4,3)
-    return removeSecondsArr.join('')
-  }
+    removeSecondsArr.splice(5, 3);
+    return removeSecondsArr.join("");
+  } 
+    removeSecondsArr.splice(4, 3);
+    return removeSecondsArr.join("");
+  
 }
 
 function MiscWeatherSectionFactory(iconSrc, altText) {

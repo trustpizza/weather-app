@@ -44,8 +44,8 @@ const SearchBar = () => {
     const searchTarget = searchbar.value;
 
     if (searchTarget) {
-      // const result = searchForWeather(searchTarget);
-      const result = searchForForecast();
+      const result = searchForWeather(searchTarget);
+      // const result = searchForForecast();
 
       result.then((response) => {
         console.log(response);
@@ -77,10 +77,12 @@ async function searchForWeather(search) {
   }
 }
 
-async function searchForForecast(search) {
+async function searchForForecast() {
+  const lon = 42.3584;
+  const lat = -71.0598;
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${search}&APPID=${api_key}`,
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
       { mode: "cors" }
     );
  

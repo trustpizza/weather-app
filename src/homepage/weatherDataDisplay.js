@@ -6,20 +6,38 @@ import Humidity from "../photos/humidity.svg";
 
 const WeatherDataDisplay = () => {
   const dataChoiceSection = document.createElement("div");
-  
+
+  const parent = document.createElement('div');
+  parent.className = "bg-white rounded w-full max-w-xs p-4"
+
   const currentWeather = weatherOfCity();
   /*
     Create a bar above the main card that does the following:
       + Includes some links to different types of data
       + Has some dropdown menus to show differnt maps
-  */
 
-  return currentWeather;
+    WHen someone searches first they are presented with a list of cities to choose from.  Clicking on one of the link's is what populates the graph.
+  */
+  parent.append(currentWeather.card)
+
+  return parent;
 };
+
+const citySearchResults = () => {
+  const resultsDiv = document.createElement('div');
+  
+  return resultsDiv;
+}
+
+function cityLink(city, state) {
+  const card = document.createElement('div');
+  card.textContent = `${city}, ${state}`
+
+}
 
 const weatherOfCity = () => {
   const card = document.createElement("div");
-  card.className = "flex flex-col bg-white rounded p-4 w-full max-w-xs";
+  card.className = "flex flex-col bg-white rounded w-full max-w-xs hidden";
 
   // Header of Card
   const cityName = document.createElement("div");
@@ -141,8 +159,8 @@ const weatherOfCity = () => {
     miscWeatherInfoSection
   );
 
-  return {card, update};
-}
+  return { card, update };
+};
 
 function populateWeatherDisplay(objs, data) {
   // update the data
@@ -271,10 +289,9 @@ function getTimeFromDayInstance(int) {
   if (removeSecondsArr.length > 10) {
     removeSecondsArr.splice(5, 3);
     return removeSecondsArr.join("");
-  } 
-    removeSecondsArr.splice(4, 3);
-    return removeSecondsArr.join("");
-  
+  }
+  removeSecondsArr.splice(4, 3);
+  return removeSecondsArr.join("");
 }
 
 function MiscWeatherSectionFactory(iconSrc, altText) {

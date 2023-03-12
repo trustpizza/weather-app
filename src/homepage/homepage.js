@@ -21,7 +21,7 @@ const homepage = () => {
 
   //   const weatherDisplay = document.createElement("div");
 
-  display.append(title, searchSection, weatherDisplay.card);
+  display.append(title, searchSection, weatherDisplay);
   return display;
 };
 

@@ -43,12 +43,12 @@ const SearchBar = () => {
     const searchTarget = searchbar.value;
 
     if (searchTarget) {
-      // const result = searchForWeather(searchTarget);
+      const result = searchForWeather(searchTarget);
       // const result = searchForForecast();
-      const result = searchForCity();
+      // const result = searchForCity();
       result.then((response) => {
         console.log(response);
-        // weatherDisplay.update(response);
+        weatherDisplay.update(response);
       });
 
       searchbar.value = "";

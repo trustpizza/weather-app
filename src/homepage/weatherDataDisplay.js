@@ -7,12 +7,17 @@ import Humidity from "../photos/humidity.svg";
 const WeatherDataDisplay = () => {
   const dataChoiceSection = document.createElement("div");
   
+  const currentWeather = weatherOfCity();
   /*
     Create a bar above the main card that does the following:
       + Includes some links to different types of data
       + Has some dropdown menus to show differnt maps
   */
 
+  return currentWeather;
+};
+
+const weatherOfCity = () => {
   const card = document.createElement("div");
   card.className = "flex flex-col bg-white rounded p-4 w-full max-w-xs";
 
@@ -136,8 +141,8 @@ const WeatherDataDisplay = () => {
     miscWeatherInfoSection
   );
 
-  return { card, update };
-};
+  return {card, update};
+}
 
 function populateWeatherDisplay(objs, data) {
   // update the data

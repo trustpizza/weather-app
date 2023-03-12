@@ -44,11 +44,12 @@ const SearchBar = () => {
     const searchTarget = searchbar.value;
 
     if (searchTarget) {
-      const result = searchForWeather(searchTarget);
+      // const result = searchForWeather(searchTarget);
+      const result = searchForForecast();
 
       result.then((response) => {
         console.log(response);
-        weatherDisplay.update(response);
+        // weatherDisplay.update(response);
       });
 
       searchbar.value = "";
@@ -73,6 +74,22 @@ async function searchForWeather(search) {
     return weatherData;
   } catch (error) {
     console.log(error);
+  }
+}
+
+async function searchForForecast(search) {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${search}&APPID=${api_key}`,
+      { mode: "cors" }
+    );
+ 
+
+    const forecast = await response.json();
+
+    return forecast;
+  } catch (error) {
+    console.log(error)
   }
 }
 

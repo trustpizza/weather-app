@@ -5,6 +5,14 @@ import Wind from "../photos/wind.svg";
 import Humidity from "../photos/humidity.svg";
 
 const WeatherDataDisplay = () => {
+  const dataChoiceSection = document.createElement("div");
+  
+  /*
+    Create a bar above the main card that does the following:
+      + Includes some links to different types of data
+      + Has some dropdown menus to show differnt maps
+  */
+
   const card = document.createElement("div");
   card.className = "flex flex-col bg-white rounded p-4 w-full max-w-xs";
 

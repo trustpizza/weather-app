@@ -28,7 +28,7 @@
 
 ## About The Project
 
-![Screen Shot](src/photos/screenshot.png)
+![Screen Shot](src/photos/screenshot-of-weather.png)
 
 This project is an exercise in creating a **high-quality, responsive front-end experience**, in **dynamically displaying data**,   and implementing **API calls via Javascript Promises and asynchronous functions**.   This project was created in conjunction with [The Odin Project](https://www.theodinproject.com), an Open Source full stack web development community and course.  The weather information fro this project comes from [Open Weather Map](https://openweathermap.org/), a weather company offering a free tier of their weather data API.
 

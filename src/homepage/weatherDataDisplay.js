@@ -7,8 +7,8 @@ import Humidity from "../photos/humidity.svg";
 const WeatherDataDisplay = () => {
   const dataChoiceSection = document.createElement("div");
 
-  const parent = document.createElement('div');
-  parent.className = "bg-white rounded w-full max-w-xs p-4"
+  const parent = document.createElement("div");
+  parent.className = "bg-white rounded w-full max-w-xs p-4";
 
   const currentWeather = weatherOfCity();
   /*
@@ -18,22 +18,10 @@ const WeatherDataDisplay = () => {
 
     WHen someone searches first they are presented with a list of cities to choose from.  Clicking on one of the link's is what populates the graph.
   */
-  parent.append(currentWeather.card)
+  parent.append(currentWeather.card);
 
   return parent;
 };
-
-const citySearchResults = () => {
-  const resultsDiv = document.createElement('div');
-  
-  return resultsDiv;
-}
-
-function cityLink(city, state) {
-  const card = document.createElement('div');
-  card.textContent = `${city}, ${state}`
-
-}
 
 const weatherOfCity = () => {
   const card = document.createElement("div");

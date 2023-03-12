@@ -5,6 +5,7 @@ import {
   searchForWeather,
   searchForForecast,
 } from "../api-calls";
+import CitySearchResultsDisplay from "./searchResults";
 
 const SearchBar = () => {
   const form = document.createElement("form");
@@ -53,6 +54,7 @@ const SearchBar = () => {
       result.then((response) => {
         console.log(response);
         // weatherDisplay.update(response);
+        CitySearchResultsDisplay(response);
       });
 
       searchbar.value = "";

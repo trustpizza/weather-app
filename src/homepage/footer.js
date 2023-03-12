@@ -16,6 +16,11 @@ const footer = () => {
 
     TOPshoutout.appendChild(TOPlink);
 
+    // Socials
+
+        // Add github
+        // Add Portfolio link
+
     linkSection.append(TOPshoutout)
 
     container.append(linkSection)

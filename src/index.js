@@ -1,5 +1,6 @@
 import "./style.css";
 import { homepage } from "./homepage/homepage";
+import Footer from "./homepage/footer";
 /*
     Planning:
 
@@ -18,4 +19,6 @@ import { homepage } from "./homepage/homepage";
 // })
 const content = document.getElementById("content");
 const display = homepage();
-content.append(display);
+const footer = Footer()
+
+content.append(display, footer);

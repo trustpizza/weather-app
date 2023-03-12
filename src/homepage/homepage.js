@@ -19,6 +19,7 @@ const homepage = () => {
   searchSection.append(searchbar);
 
   //   const weatherDisplay = document.createElement("div");
+
   display.append(title, searchSection, weatherDisplay.card);
   return display;
 };

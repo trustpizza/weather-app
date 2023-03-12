@@ -7,6 +7,10 @@ const homepage = () => {
   const display = document.createElement("div");
   display.className = "w-full flex flex-col justify-center items-center";
 
+  const title = document.createElement("h1");
+  title.textContent = "Weather the Storm"
+  title.className = "mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+
   const searchSection = document.createElement("div");
   searchSection.className = "w-full md:px-20 flex justify-center";
 
@@ -15,7 +19,7 @@ const homepage = () => {
   searchSection.append(searchbar);
 
   //   const weatherDisplay = document.createElement("div");
-  display.append(searchSection, weatherDisplay.card);
+  display.append(title, searchSection, weatherDisplay.card);
   return display;
 };
 

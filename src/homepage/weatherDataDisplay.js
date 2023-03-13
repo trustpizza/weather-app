@@ -5,12 +5,9 @@ import Wind from "../photos/wind.svg";
 import Humidity from "../photos/humidity.svg";
 
 const WeatherDataDisplay = () => {
-  const dataChoiceSection = document.createElement("div");
+  const container = document.createElement("div");
+  container.className = "bg-white rounded w-full max-w-xs p-4";
 
-  const parent = document.createElement("div");
-  parent.className = "bg-white rounded w-full max-w-xs p-4";
-
-  const currentWeather = weatherOfCity();
   /*
     Create a bar above the main card that does the following:
       + Includes some links to different types of data
@@ -18,14 +15,13 @@ const WeatherDataDisplay = () => {
 
     WHen someone searches first they are presented with a list of cities to choose from.  Clicking on one of the link's is what populates the graph.
   */
-  parent.append(currentWeather.card);
 
-  return parent;
+  return container;
 };
 
-const weatherOfCity = () => {
+const WeatherOfCity = () => {
   const card = document.createElement("div");
-  card.className = "flex flex-col bg-white rounded w-full max-w-xs hidden";
+  card.className = "flex flex-col bg-white rounded w-full max-w-xs";
 
   // Header of Card
   const cityName = document.createElement("div");
@@ -303,4 +299,4 @@ function MiscWeatherItemFactory(text) {
   return item;
 }
 
-export default WeatherDataDisplay;
+export {WeatherDataDisplay, WeatherOfCity};

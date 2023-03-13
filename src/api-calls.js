@@ -1,9 +1,10 @@
 const api_key = "81b221d07baad085936c6ec899f5fa86"; // This can be public since it's already a public API key
 
-async function searchForWeather(search) {
+async function searchForWeather(lon, lat) {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${search}&APPID=${api_key}`,
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`,
+      // `https://api.openweathermap.org/data/2.5/weather?q=${search}&APPID=${api_key}`,
       { mode: "cors" }
     );
 
@@ -15,9 +16,7 @@ async function searchForWeather(search) {
   }
 }
 
-async function searchForForecast() {
-  const lon = 42.3584;
-  const lat = -71.0598;
+async function searchForForecast(lon, lat) {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,

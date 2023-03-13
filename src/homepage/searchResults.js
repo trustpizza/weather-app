@@ -1,4 +1,5 @@
-import { weatherDisplay } from "./homepage";
+import { weatherOfCity, searchbar } from "./homepage";
+import { searchForWeather } from "../api-calls";
 
 const CitySearchResultsDisplay = () => {
     const resultsContainer = document.createElement('div');
@@ -9,6 +10,7 @@ const CitySearchResultsDisplay = () => {
       results.forEach(city => {
             const card = CityLink(city);
             resultsContainer.appendChild(card);
+            // console.log(CitySearchResultsDisplay())
       });
     }
 
@@ -20,6 +22,8 @@ const CitySearchResultsDisplay = () => {
 
     return { resultsContainer, populateResults, clear };
 };
+
+const SearchResults = CitySearchResultsDisplay();
 
 function CityLink(city) { 
   const button = document.createElement('button');
@@ -34,11 +38,23 @@ function CityLink(city) {
     stateAbbreviation.then((response) => {
       // Do stuff with response
         // weatherDisplay.update(response);
-      console.log(response)
+
+      const weather = searchForWeather(city.lon, city.lat);
+      weather.then((response) => {
+        weatherOfCity.update(response)
+      })
+
+      reset();
+      // console.log(response, city)
     })
   })
 
   return button
+}
+
+function reset() {
+  SearchResults.clear()
+  searchbar.reset();
 }
 
 async function findStateAbbreviation(state) {
@@ -60,6 +76,5 @@ async function findStateAbbrByValue(state, stateList) {
   return stateName
 }
 
-const SearchResults = CitySearchResultsDisplay();
 
 export default SearchResults;

@@ -56,9 +56,7 @@ const SearchBar = () => {
         // weatherDisplay.update(response);
         // console.log(response)
         SearchResults.clear();
-        console.log(response, searchbar.value)
         SearchResults.populateResults(response)
-        console.log(SearchResults.resultsContainer);
       });
 
       // searchbar.value = "";

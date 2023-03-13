@@ -323,8 +323,24 @@ function MiscWeatherItemFactory(text) {
   return item;
 }
 
+const WeatherForecast = () => {
+  const card = document.createElement('div');
+  card.className = "bg-white rounded w-full p-4";
+
+  return {card};
+}
+
+function DayForecastFactory() {
+  const day = document.createElement('div');
+  day.className = "";
+  
+  return day;
+}
+
 const weatherOfCity = WeatherOfCity();
+const weatherForecast = WeatherForecast();
+
 const displayContent = DisplayContent();
 weatherDisplay.append(navbar.nav, displayContent.container);
 
-export { weatherDisplay, displayContent, weatherOfCity };
+export { weatherDisplay, displayContent, weatherOfCity, weatherForecast};

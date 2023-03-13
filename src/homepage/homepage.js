@@ -3,12 +3,13 @@ import {
   weatherDisplay,
   displayContent,
   weatherOfCity,
+  weatherForecast
 } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
 import navbar from "./navbar";
 
 const searchbar = SearchBar();
-displayContent.addChild(weatherOfCity.card);
+displayContent.addChild(weatherForecast.card);
 
 // weatherDisplay.append(navbar.nav, displayContent)
 

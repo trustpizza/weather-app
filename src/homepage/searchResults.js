@@ -27,9 +27,10 @@ const SearchResults = CitySearchResultsDisplay();
 
 function CityLink(city) { 
   const button = document.createElement('button');
-  let stateAbbreviation = findStateAbbreviation(city.state)
+  let stateAbbreviation = findStateAbbreviation(city.state);
   stateAbbreviation.then((state) => {
-    button.textContent = `${city.name}, ${state}`
+    stateAbbreviation = state
+    button.textContent = `${city.name}, ${stateAbbreviation}`
   })
 
   button.className = 
@@ -44,7 +45,8 @@ function CityLink(city) {
 
     const weather = searchForWeather(city.lon, city.lat);
     weather.then((response) => {
-      weatherOfCity.update(response, button.textContent)
+      response.state = stateAbbreviation
+      weatherOfCity.update(response)
     })
 
     reset();

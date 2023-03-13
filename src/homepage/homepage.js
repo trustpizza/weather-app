@@ -1,10 +1,6 @@
 import SearchBar from "./form";
-import { weatherDisplay, WeatherOfCity } from "./weatherDataDisplay";
+import { weatherDisplay } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
-import navbar from "./navbar";
-
-const weatherOfCity = WeatherOfCity();
-weatherDisplay.appendChild(weatherOfCity.card);
 
 const searchbar = SearchBar();
 
@@ -24,7 +20,7 @@ const homepage = () => {
 
   const citySearchResults = SearchResults.resultsContainer;
 
-  //   const weatherDisplay = document.createElement("div");
+    // const weatherDisplay = document.createElement("div");
 
   display.append(title, searchSection, citySearchResults, weatherDisplay);
   return display;
@@ -42,4 +38,4 @@ function showObj(obj) {
   }
 }
 
-export { homepage, weatherOfCity, searchbar, hideObj, showObj };
+export { homepage, searchbar, hideObj, showObj };

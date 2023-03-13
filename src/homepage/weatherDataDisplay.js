@@ -3,11 +3,7 @@ import Sunrise from "../photos/sunrise.svg";
 import Sunset from "../photos/sunset.svg";
 import Wind from "../photos/wind.svg";
 import Humidity from "../photos/humidity.svg";
-import { hideOrShowObj } from "./homepage";
-import Navbar from "./navbar";
-
-const navbar = Navbar()
-navbar.populate();
+// import { navbar } from "./navbar";
 
 const WeatherDataDisplay = () => {
   const container = document.createElement('div')
@@ -21,7 +17,7 @@ const WeatherDataDisplay = () => {
 
     WHen someone searches first they are presented with a list of cities to choose from.  Clicking on one of the link's is what populates the graph.
   */
-  container.append(navbar.nav)
+  // container.append(navbar.nav)
   return container;
 };
 

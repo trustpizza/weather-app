@@ -7,18 +7,12 @@ import { hideOrShowObj } from "./homepage";
 import Navbar from "./navbar";
 
 const navbar = Navbar()
+navbar.populate();
 
 const WeatherDataDisplay = () => {
   const container = document.createElement('div')
   container.className =
     "flex flex-col gap-2 rounded w-full max-w-sm"
-
-  const navContainer = document.createElement('div');
-  navContainer.className = 
-    "bg-white rounded w-full p-4";
-  
-  navContainer.appendChild(navbar.nav);
-
 
   /*
     Create a bar above the main card that does the following:
@@ -27,7 +21,7 @@ const WeatherDataDisplay = () => {
 
     WHen someone searches first they are presented with a list of cities to choose from.  Clicking on one of the link's is what populates the graph.
   */
-  container.append(navContainer)
+  container.append(navbar.nav)
   return container;
 };
 

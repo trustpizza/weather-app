@@ -1,7 +1,7 @@
 const Navbar = () => {
     const nav = document.createElement('nav');
     nav.className =
-        "flex gap-2"
+        "flex gap-2 bg-white rounded w-full p-4"
 
     const populate = () => {
         const weatherButton = RadioButtonFactory();
@@ -17,7 +17,7 @@ const Navbar = () => {
 function RadioButtonFactory(action) {
     const button = document.createElement('button');
     button.className = 
-        ""
+        "flex-grow h-10 bg-blue-500 rounded"
 
     return button;
 };

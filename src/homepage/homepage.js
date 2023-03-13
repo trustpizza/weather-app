@@ -1,8 +1,7 @@
 import SearchBar from "./form";
-import { WeatherDataDisplay, WeatherOfCity } from "./weatherDataDisplay";
+import { weatherDisplay, WeatherOfCity } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
 
-const weatherDisplay = WeatherDataDisplay();
 const weatherOfCity = WeatherOfCity();
 weatherDisplay.appendChild(weatherOfCity.card);
 
@@ -30,4 +29,16 @@ const homepage = () => {
   return display;
 };
 
-export { homepage, weatherOfCity, searchbar };
+function hideObj(obj) {
+  if (!obj.classList.contains('hidden')) {
+    obj.classList.add('hidden')
+  }
+}
+
+function showObj(obj) {
+  if(obj.classList.contains('hidden')) {
+    obj.classList.remove('hidden')
+  }
+}
+
+export { homepage, weatherOfCity, searchbar, hideObj, showObj };

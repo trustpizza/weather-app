@@ -1,5 +1,7 @@
 import { weatherOfCity, searchbar } from "./homepage";
 import { searchForWeather } from "../api-calls";
+import { showObj } from "./homepage";
+import { weatherDisplay } from "./weatherDataDisplay";
 
 const CitySearchResultsDisplay = () => {
   const resultsContainer = document.createElement("div");
@@ -42,6 +44,8 @@ function CityLink(city) {
       weatherOfCity.update(response);
     });
 
+    showObj(weatherDisplay);
+    console.log(weatherDisplay)
     reset();
   });
 

@@ -3,10 +3,11 @@ import Sunrise from "../photos/sunrise.svg";
 import Sunset from "../photos/sunset.svg";
 import Wind from "../photos/wind.svg";
 import Humidity from "../photos/humidity.svg";
+import { hideOrShowObj } from "./homepage";
 
 const WeatherDataDisplay = () => {
   const container = document.createElement("div");
-  container.className = "bg-white rounded w-full max-w-xs p-4";
+  container.className = "bg-white rounded w-full max-w-xs p-4 hidden";
 
   /*
     Create a bar above the main card that does the following:
@@ -18,6 +19,8 @@ const WeatherDataDisplay = () => {
 
   return container;
 };
+
+const weatherDisplay = WeatherDataDisplay();
 
 const WeatherOfCity = () => {
   const card = document.createElement("div");
@@ -132,7 +135,8 @@ const WeatherOfCity = () => {
       wind,
       humidity,
     };
-
+    // unhide 
+    // hideOrShowObj(weatherDisplay)
     populateWeatherDisplay(cardObjs, data);
   };
 
@@ -301,4 +305,4 @@ function MiscWeatherItemFactory(text) {
   return item;
 }
 
-export { WeatherDataDisplay, WeatherOfCity };
+export { weatherDisplay, WeatherOfCity };

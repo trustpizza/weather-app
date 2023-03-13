@@ -1,11 +1,12 @@
 import Magnifying from "../photos/magnify.svg";
-import { weatherDisplay } from "./homepage";
+import { weatherDisplay } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
 import {
   searchForCity,
   searchForWeather,
   searchForForecast,
 } from "../api-calls";
+import { hideObj } from "./homepage";
 
 const SearchBar = () => {
   const form = document.createElement("form");
@@ -46,6 +47,8 @@ const SearchBar = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const searchTarget = searchbar.value;
+    hideObj(weatherDisplay)
+
 
     if (searchTarget) {
       // const result = searchForWeather(searchTarget);

@@ -1,6 +1,7 @@
 import SearchBar from "./form";
 import { weatherDisplay, WeatherOfCity } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
+import navbar from "./navbar";
 
 const weatherOfCity = WeatherOfCity();
 weatherDisplay.appendChild(weatherOfCity.card);

@@ -4,10 +4,21 @@ import Sunset from "../photos/sunset.svg";
 import Wind from "../photos/wind.svg";
 import Humidity from "../photos/humidity.svg";
 import { hideOrShowObj } from "./homepage";
+import Navbar from "./navbar";
+
+const navbar = Navbar()
 
 const WeatherDataDisplay = () => {
-  const container = document.createElement("div");
-  container.className = "bg-white rounded w-full max-w-xs p-4 hidden";
+  const container = document.createElement('div')
+  container.className =
+    "flex flex-col gap-2 rounded w-full max-w-sm"
+
+  const navContainer = document.createElement('div');
+  navContainer.className = 
+    "bg-white rounded w-full p-4";
+  
+  navContainer.appendChild(navbar.nav);
+
 
   /*
     Create a bar above the main card that does the following:
@@ -16,7 +27,7 @@ const WeatherDataDisplay = () => {
 
     WHen someone searches first they are presented with a list of cities to choose from.  Clicking on one of the link's is what populates the graph.
   */
-
+  container.append(navContainer)
   return container;
 };
 
@@ -24,7 +35,7 @@ const weatherDisplay = WeatherDataDisplay();
 
 const WeatherOfCity = () => {
   const card = document.createElement("div");
-  card.className = "flex flex-col bg-white rounded w-full max-w-xs";
+  card.className = "flex flex-col bg-white rounded w-full p-4";
 
   // Header of Card
   const cityName = document.createElement("div");

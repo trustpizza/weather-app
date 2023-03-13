@@ -50,22 +50,20 @@ const SearchBar = () => {
     if (searchTarget) {
       // const result = searchForWeather(searchTarget);
       // const result = searchForForecast();
-      const result = searchForCity();
+      const result = searchForCity(searchTarget);
       result.then((response) => {
         // console.log(response);
         // weatherDisplay.update(response);
+        // console.log(response)
+        SearchResults.clear();
+        console.log(response, searchbar.value)
+        SearchResults.populateResults(response)
         console.log(SearchResults.resultsContainer);
       });
 
-      searchbar.value = "";
+      // searchbar.value = "";
     }
   });
-
-  const x = searchForCity();
-  x.then((response) => {
-    SearchResults.populateResults(response);
-    console.log(response)
-  })
 
   searchDiv.append(searchImgDiv, searchbar, submit);
   form.appendChild(searchDiv);

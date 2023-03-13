@@ -303,4 +303,4 @@ function MiscWeatherItemFactory(text) {
   return item;
 }
 
-export { WeatherDataDisplay };
+export default WeatherDataDisplay;

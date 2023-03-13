@@ -1,5 +1,5 @@
 import SearchBar from "./form";
-import { WeatherDataDisplay } from "./weatherDataDisplay";
+import WeatherDataDisplay from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
 
 const weatherDisplay = WeatherDataDisplay();

@@ -32,9 +32,9 @@ async function searchForForecast() {
   }
 }
 
-async function searchForCity() {
-  const cityName = "boston";
-  const stateCode = "MA";
+async function searchForCity(city, state = "MA") {
+  const cityName = city;
+  const stateCode = state;
   const countryCode = "US";
 
   try {

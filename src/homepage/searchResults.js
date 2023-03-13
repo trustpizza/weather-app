@@ -1,16 +1,24 @@
+import { weatherDisplay } from "./homepage";
+
 const CitySearchResultsDisplay = () => {
     const resultsContainer = document.createElement('div');
     resultsContainer.className = 
       "flex gap-2 flex-col md:flex-row"
 
-    function populateResults(results) {
+    const populateResults = (results) => {
       results.forEach(city => {
             const card = CityLink(city);
             resultsContainer.appendChild(card);
       });
     }
 
-    return { resultsContainer, populateResults };
+    const clear = () => {
+      while (resultsContainer.firstChild) {
+        resultsContainer.removeChild(resultsContainer.firstChild)
+      }
+    }
+
+    return { resultsContainer, populateResults, clear };
 };
 
 function CityLink(city) { 
@@ -22,28 +30,32 @@ function CityLink(city) {
   button.addEventListener('click', () => {
     // Clear Buttons
     // Populate Weather Data
-    const x = findCityAbbreviation(city.state)
+    const stateAbbreviation = findStateAbbreviation(city.state)
+    stateAbbreviation.then((response) => {
+      // Do stuff with response
+        // weatherDisplay.update(response);
+      console.log(response)
+    })
   })
 
   return button
 }
 
-async function findCityAbbreviation(state) {
+async function findStateAbbreviation(state) {
   try {
     const response = import(
       "../locations/state-names.json"
     )
     const states = await response;
-    const abbreviation = await findCityAbbrByValue(state, states);
+    const abbreviation = await findStateAbbrByValue(state, states);
 
-    console.log(abbreviation)
     return abbreviation
   } catch(error) {
     return error
   }
 }
 
-async function findCityAbbrByValue(state, stateList) {
+async function findStateAbbrByValue(state, stateList) {
   const stateName =  await Object.keys(stateList).find(key => stateList[key] === state)
   return stateName
 }

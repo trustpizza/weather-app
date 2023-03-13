@@ -1,5 +1,6 @@
 import SearchBar from "./form";
 import { WeatherDataDisplay } from "./weatherDataDisplay";
+import SearchResults from "./searchResults";
 
 const weatherDisplay = WeatherDataDisplay();
 
@@ -16,12 +17,15 @@ const homepage = () => {
   searchSection.className = "w-full md:px-20 flex justify-center";
 
   const searchbar = SearchBar();
-
+  
   searchSection.append(searchbar);
+
+  const citySearchResults = SearchResults.resultsContainer;
+
 
   //   const weatherDisplay = document.createElement("div");
 
-  display.append(title, searchSection, weatherDisplay);
+  display.append(title, searchSection, citySearchResults, weatherDisplay);
   return display;
 };
 

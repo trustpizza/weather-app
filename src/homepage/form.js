@@ -1,11 +1,11 @@
 import Magnifying from "../photos/magnify.svg";
 import { weatherDisplay } from "./homepage";
+import SearchResults from "./searchResults";
 import {
   searchForCity,
   searchForWeather,
   searchForForecast,
 } from "../api-calls";
-import CitySearchResultsDisplay from "./searchResults";
 
 const SearchBar = () => {
   const form = document.createElement("form");
@@ -52,9 +52,10 @@ const SearchBar = () => {
       // const result = searchForForecast();
       const result = searchForCity();
       result.then((response) => {
-        console.log(response);
+        // console.log(response);
         // weatherDisplay.update(response);
-        CitySearchResultsDisplay(response);
+        SearchResults.populateResults(response);
+        console.log(SearchResults.resultsContainer);
       });
 
       searchbar.value = "";

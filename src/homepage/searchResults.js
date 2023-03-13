@@ -1,23 +1,31 @@
-const CitySearchResultsDisplay = (results) => {
+const CitySearchResultsDisplay = () => {
     const resultsContainer = document.createElement('div');
+    resultsContainer.className = 
+      ""
 
-    results.forEach(city => {
-        console.log(cityLink(city))
-    });
+    function populateResults(results) {
+      results.forEach(city => {
+            const card = CityLink(city);
 
-    return resultsContainer;
+            resultsContainer.appendChild(card);
+      });
+    }
+
+    return { resultsContainer, populateResults };
 };
 
-function cityLink(city) {
-  const card = document.createElement("div");
+function CityLink(city) { 
+  const button = document.createElement('button');
+  button.textContent = `${city.name}, ${city.state}`;
 
-  const link = document.createElement('a');
-  link.textContent = `${city.name}, ${city.state}`
+  button.addEventListener('click', () => {
+    // Clear Buttons
+    // Populate Weather Data
+  })
 
-  card.append(link);
-
-  return card
+  return button
 }
 
+const SearchResults = CitySearchResultsDisplay();
 
-export default CitySearchResultsDisplay;
+export default SearchResults;

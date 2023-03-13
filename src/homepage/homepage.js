@@ -1,10 +1,10 @@
 import SearchBar from "./form";
-import {WeatherDataDisplay, WeatherOfCity} from "./weatherDataDisplay";
+import { WeatherDataDisplay, WeatherOfCity } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
 
 const weatherDisplay = WeatherDataDisplay();
 const weatherOfCity = WeatherOfCity();
-weatherDisplay.appendChild(weatherOfCity.card)
+weatherDisplay.appendChild(weatherOfCity.card);
 
 const searchbar = SearchBar();
 
@@ -20,11 +20,9 @@ const homepage = () => {
   const searchSection = document.createElement("div");
   searchSection.className = "w-full md:px-20 flex justify-center";
 
-  
   searchSection.append(searchbar);
 
   const citySearchResults = SearchResults.resultsContainer;
-
 
   //   const weatherDisplay = document.createElement("div");
 

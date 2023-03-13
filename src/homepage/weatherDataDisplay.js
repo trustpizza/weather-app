@@ -132,8 +132,7 @@ const WeatherOfCity = () => {
       wind,
       humidity,
     };
-    
-    
+
     populateWeatherDisplay(cardObjs, data);
   };
 
@@ -150,7 +149,7 @@ const WeatherOfCity = () => {
 
 function populateWeatherDisplay(objs, data) {
   // update the data
-  console.log(data)
+  console.log(data);
   objs.cityName.textContent = `${data.name}, ${data.state}`;
   objs.date.textContent = determineTime(data.dt * 1000);
   objs.weatherIcon.src = Cloudy;
@@ -302,4 +301,4 @@ function MiscWeatherItemFactory(text) {
   return item;
 }
 
-export {WeatherDataDisplay, WeatherOfCity};
+export { WeatherDataDisplay, WeatherOfCity };

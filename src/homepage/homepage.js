@@ -1,5 +1,9 @@
 import SearchBar from "./form";
-import { weatherDisplay, displayContent, weatherOfCity } from "./weatherDataDisplay";
+import {
+  weatherDisplay,
+  displayContent,
+  weatherOfCity,
+} from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
 import navbar from "./navbar";
 
@@ -24,21 +28,21 @@ const homepage = () => {
 
   const citySearchResults = SearchResults.resultsContainer;
 
-    // const weatherDisplay = document.createElement("div");
+  // const weatherDisplay = document.createElement("div");
 
   display.append(title, searchSection, citySearchResults, weatherDisplay);
   return display;
 };
 
 function hideObj(obj) {
-  if (!obj.classList.contains('hidden')) {
-    obj.classList.add('hidden')
+  if (!obj.classList.contains("hidden")) {
+    obj.classList.add("hidden");
   }
 }
 
 function showObj(obj) {
-  if(obj.classList.contains('hidden')) {
-    obj.classList.remove('hidden')
+  if (obj.classList.contains("hidden")) {
+    obj.classList.remove("hidden");
   }
 }
 

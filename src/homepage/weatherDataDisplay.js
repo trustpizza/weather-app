@@ -6,9 +6,8 @@ import Humidity from "../photos/humidity.svg";
 import navbar from "./navbar";
 
 const WeatherDataDisplay = () => {
-  const container = document.createElement('div')
-  container.className =
-    "flex flex-col gap-2 rounded w-full max-w-sm"
+  const container = document.createElement("div");
+  container.className = "flex flex-col gap-2 rounded w-full max-w-sm";
 
   /*
     Create a bar above the main card that does the following:
@@ -24,22 +23,21 @@ const WeatherDataDisplay = () => {
 const weatherDisplay = WeatherDataDisplay();
 
 const DisplayContent = () => {
-  const container = document.createElement('div');
+  const container = document.createElement("div");
   container.className = "bg-white rounded w-full";
 
   const clear = () => {
     while (container.firstChild) {
       container.removeChild(container.firstChild);
     }
-  }
-
-  const addChild = (child) => {
-    container.appendChild(child)
   };
 
-  return {container, clear, addChild}
-}
+  const addChild = (child) => {
+    container.appendChild(child);
+  };
 
+  return { container, clear, addChild };
+};
 
 const WeatherOfCity = () => {
   const card = document.createElement("div");
@@ -154,7 +152,7 @@ const WeatherOfCity = () => {
       wind,
       humidity,
     };
-    // unhide 
+    // unhide
     // hideOrShowObj(weatherDisplay)
     populateWeatherDisplay(cardObjs, data);
   };
@@ -322,10 +320,10 @@ function MiscWeatherItemFactory(text) {
   item.textContent = text;
 
   return item;
-};
+}
 
 const weatherOfCity = WeatherOfCity();
 const displayContent = DisplayContent();
-weatherDisplay.append(navbar.nav, displayContent.container)
+weatherDisplay.append(navbar.nav, displayContent.container);
 
 export { weatherDisplay, displayContent, weatherOfCity };

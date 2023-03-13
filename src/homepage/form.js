@@ -7,6 +7,7 @@ import {
   searchForForecast,
 } from "../api-calls";
 import { hideObj } from "./homepage";
+import navbar from "./navbar";
 
 const SearchBar = () => {
   const form = document.createElement("form");
@@ -47,17 +48,15 @@ const SearchBar = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const searchTarget = searchbar.value;
-    hideObj(weatherDisplay)
+    hideObj(weatherDisplay);
 
+    
 
     if (searchTarget) {
       // const result = searchForWeather(searchTarget);
       // const result = searchForForecast();
       const result = searchForCity(searchTarget);
       result.then((response) => {
-        // console.log(response);
-        // weatherDisplay.update(response);
-        // console.log(response)
         SearchResults.clear();
         SearchResults.populateResults(response);
       });

@@ -1,8 +1,5 @@
 import { weatherDisplay, WeatherOfCity } from "./weatherDataDisplay";
 
-console.log(weatherDisplay)
-const weatherOfCity = WeatherOfCity();
-console.log(weatherOfCity)
 // weatherDisplay.appendChild(weatherOfCity.card);
 
 const Navbar = () => {
@@ -43,4 +40,4 @@ function RadioButtonFactory(action) {
 
 const navbar = Navbar();
 
-export {navbar, weatherOfCity };
+export default navbar ;

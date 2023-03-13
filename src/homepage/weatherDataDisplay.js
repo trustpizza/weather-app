@@ -3,7 +3,7 @@ import Sunrise from "../photos/sunrise.svg";
 import Sunset from "../photos/sunset.svg";
 import Wind from "../photos/wind.svg";
 import Humidity from "../photos/humidity.svg";
-// import { navbar } from "./navbar";
+import navbar from "./navbar";
 
 const WeatherDataDisplay = () => {
   const container = document.createElement('div')
@@ -22,6 +22,24 @@ const WeatherDataDisplay = () => {
 };
 
 const weatherDisplay = WeatherDataDisplay();
+
+const DisplayContent = () => {
+  const container = document.createElement('div');
+  container.className = "bg-white rounded w-full";
+
+  const clear = () => {
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+  }
+
+  const addChild = (child) => {
+    container.appendChild(child)
+  };
+
+  return {container, clear, addChild}
+}
+
 
 const WeatherOfCity = () => {
   const card = document.createElement("div");
@@ -304,6 +322,10 @@ function MiscWeatherItemFactory(text) {
   item.textContent = text;
 
   return item;
-}
+};
 
-export { weatherDisplay, WeatherOfCity };
+const weatherOfCity = WeatherOfCity();
+const displayContent = DisplayContent();
+weatherDisplay.append(navbar.nav, displayContent.container)
+
+export { weatherDisplay, displayContent, weatherOfCity };

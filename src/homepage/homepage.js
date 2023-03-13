@@ -1,8 +1,12 @@
 import SearchBar from "./form";
-import { weatherDisplay } from "./weatherDataDisplay";
+import { weatherDisplay, displayContent, weatherOfCity } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
+import navbar from "./navbar";
 
 const searchbar = SearchBar();
+displayContent.addChild(weatherOfCity.card);
+
+// weatherDisplay.append(navbar.nav, displayContent)
 
 const homepage = () => {
   const display = document.createElement("div");

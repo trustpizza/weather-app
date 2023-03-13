@@ -69,4 +69,23 @@ async function searchForCity(city, state = "MA") {
   }
 }
 
-export { searchForWeather, searchForForecast, searchForCity, searchForRadar };
+async function findStateAbbreviation(state) {
+  try {
+    const response = import("./locations/state-names.json");
+    const states = await response;
+    const abbreviation = await findStateAbbrByValue(state, states);
+
+    return abbreviation;
+  } catch (error) {
+    return error;
+  }
+}
+
+async function findStateAbbrByValue(state, stateList) {
+  const stateName = await Object.keys(stateList).find(
+    (key) => stateList[key] === state
+  );
+  return stateName;
+}
+
+export { searchForWeather, searchForForecast, searchForCity, searchForRadar, findStateAbbrByValue, findStateAbbreviation };

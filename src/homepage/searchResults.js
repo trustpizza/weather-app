@@ -2,6 +2,7 @@ import { searchbar, showObj } from "./homepage";
 import { searchForWeather } from "../api-calls";
 import { weatherDisplay, weatherOfCity } from "./weatherDataDisplay";
 import navbar from "./navbar";
+import {findStateAbbreviation} from "../api-calls"
 
 const CitySearchResultsDisplay = () => {
   const resultsContainer = document.createElement("div");
@@ -57,25 +58,6 @@ function CityLink(city) {
 function reset() {
   SearchResults.clear();
   searchbar.reset();
-}
-
-async function findStateAbbreviation(state) {
-  try {
-    const response = import("../locations/state-names.json");
-    const states = await response;
-    const abbreviation = await findStateAbbrByValue(state, states);
-
-    return abbreviation;
-  } catch (error) {
-    return error;
-  }
-}
-
-async function findStateAbbrByValue(state, stateList) {
-  const stateName = await Object.keys(stateList).find(
-    (key) => stateList[key] === state
-  );
-  return stateName;
 }
 
 export default SearchResults;

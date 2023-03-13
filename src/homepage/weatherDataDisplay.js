@@ -118,7 +118,7 @@ const WeatherOfCity = () => {
 
   // End Misc Weather Info
 
-  const update = (data) => {
+  const update = (data, stateName) => {
     const cardObjs = {
       cityName,
       date,
@@ -132,7 +132,9 @@ const WeatherOfCity = () => {
       wind,
       humidity,
     };
-    populateWeatherDisplay(cardObjs, data);
+    
+    
+    populateWeatherDisplay(cardObjs, data, stateName);
   };
 
   card.append(
@@ -146,9 +148,9 @@ const WeatherOfCity = () => {
   return { card, update };
 };
 
-function populateWeatherDisplay(objs, data) {
+function populateWeatherDisplay(objs, data, stateName) {
   // update the data
-  objs.cityName.textContent = data.name;
+  objs.cityName.textContent = stateName;
   objs.date.textContent = determineTime(data.dt * 1000);
   objs.weatherIcon.src = Cloudy;
   objs.cloudCoverage.textContent = determineCloudiness(data.clouds.all);

@@ -27,26 +27,30 @@ const SearchResults = CitySearchResultsDisplay();
 
 function CityLink(city) { 
   const button = document.createElement('button');
-  button.textContent = `${city.name}, ${city.state}`;
+  let stateAbbreviation = findStateAbbreviation(city.state)
+  stateAbbreviation.then((state) => {
+    button.textContent = `${city.name}, ${state}`
+  })
+
   button.className = 
     "bg-blue-500 hover:bg-blue-700 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
 
   button.addEventListener('click', () => {
     // Clear Buttons
     // Populate Weather Data
-    const stateAbbreviation = findStateAbbreviation(city.state)
-    stateAbbreviation.then((response) => {
       // Do stuff with response
         // weatherDisplay.update(response);
+    
 
-      const weather = searchForWeather(city.lon, city.lat);
-      weather.then((response) => {
-        weatherOfCity.update(response)
-      })
-
-      reset();
-      // console.log(response, city)
+    const weather = searchForWeather(city.lon, city.lat);
+    weather.then((response) => {
+      weatherOfCity.update(response, button.textContent)
     })
+
+    reset();
+      // console.log(response, city)
+   
+    
   })
 
   return button

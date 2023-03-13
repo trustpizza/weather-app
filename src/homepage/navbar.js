@@ -33,19 +33,20 @@ const Navbar = () => {
 
 function RadioButtonFactory(coord, type) {
   const button = document.createElement("button");
-  button.className = "flex-grow h-10 bg-blue-500 rounded";
+  button.className = 
+    "flex-grow bg-blue-500 hover:bg-blue-700 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded";
 
   if (type === "weather") {
     button.textContent = "Weather";
 
     button.addEventListener("click", () => {
-        const weatherData = searchForWeather(coord.lat, coord.lon)
-        weatherData.then((response) => {
-            console.log(response)
-        })
-      });
+      const weatherData = searchForWeather(coord.lat, coord.lon)
+      weatherData.then((response) => {
+          console.log(response)
+      })
+    });
     
-} else if (type === "forecast") {
+  } else if (type === "forecast") {
     button.textContent = "Forecast";
     button.addEventListener('click', () => {
         const forecastData = searchForForecast(coord.lat, coord.lon)
@@ -54,20 +55,17 @@ function RadioButtonFactory(coord, type) {
             // Load Forecast
         })
     })
-} else if (type === "radar") {
+  } else if (type === "radar") {
     button.textContent = "Radar";
 
-    button.addEventListener('click', () => {
-        // const radarData = searchForRadar(coord.lat, coord.lon) 
-        // radarData.then((response) => {
-        //     console.log(response)
-        // })
-        // Disabled temporarily
-    })
-}
-
- 
-
+    // button.addEventListener('click', () => {
+    //     // const radarData = searchForRadar(coord.lat, coord.lon) 
+    //     // radarData.then((response) => {
+    //     //     console.log(response)
+    //     // })
+    //     // Disabled temporarily
+    // })
+  }
   return button;
 }
 

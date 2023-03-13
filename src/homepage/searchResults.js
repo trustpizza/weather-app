@@ -1,4 +1,4 @@
-import { searchbar , showObj } from "./homepage";
+import { searchbar, showObj } from "./homepage";
 import { searchForWeather } from "../api-calls";
 import { weatherDisplay, weatherOfCity } from "./weatherDataDisplay";
 import navbar from "./navbar";

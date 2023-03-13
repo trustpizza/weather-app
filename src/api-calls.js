@@ -20,18 +20,18 @@ async function searchForRadar(lon, lat) {
   const z = 25;
   const x = 20;
   const y = 20;
-  console.log(x, y)
+  console.log(x, y);
   try {
     const response = await fetch(
       `https://tile.openweathermap.org/map/precipitation_new/${z}/${x}/${y}.png?appid=${apiKey}`,
       // `https://tile.openweathermap.org/map/precipitation/${z}/${x}/${y}.png?appid=${apiKey}`,
       { mode: "cors" }
-    )
+    );
 
     const radar = await response.json();
-    console.log(response, radar)
+    console.log(response, radar);
     return radar;
-  } catch(error) {
+  } catch (error) {
     console.log(error);
   }
 }

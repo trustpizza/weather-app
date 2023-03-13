@@ -50,8 +50,6 @@ const SearchBar = () => {
     const searchTarget = searchbar.value;
     hideObj(weatherDisplay);
 
-    
-
     if (searchTarget) {
       // const result = searchForWeather(searchTarget);
       // const result = searchForForecast();

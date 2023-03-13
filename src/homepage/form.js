@@ -54,13 +54,18 @@ const SearchBar = () => {
       result.then((response) => {
         // console.log(response);
         // weatherDisplay.update(response);
-        SearchResults.populateResults(response);
         console.log(SearchResults.resultsContainer);
       });
 
       searchbar.value = "";
     }
   });
+
+  const x = searchForCity();
+  x.then((response) => {
+    SearchResults.populateResults(response);
+    console.log(response)
+  })
 
   searchDiv.append(searchImgDiv, searchbar, submit);
   form.appendChild(searchDiv);

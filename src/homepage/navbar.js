@@ -41,9 +41,6 @@ function RadioButtonFactory(city, type) {
   button.className =
     "flex-grow bg-blue-500 hover:bg-blue-700 font-medium text-white p-1 border border-blue-500 hover:border-transparent rounded";
   let stateAbbreviation = findStateAbbreviation(city.state);
-  stateAbbreviation.then((state) => {
-    stateAbbreviation = state;
-  });
 
   if (type === "weather") {
     button.textContent = "Weather";

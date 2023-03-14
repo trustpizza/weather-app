@@ -1,3 +1,5 @@
+const stateList = require("./locations/state-names.json")
+
 const apiKey = "81b221d07baad085936c6ec899f5fa86"; // This can be public since it's already a public API key
 
 async function searchForWeather(lon, lat) {
@@ -62,27 +64,19 @@ async function searchForCity(city, state = "MA") {
     );
 
     const city = await response.json();
-
     return city;
   } catch (error) {
     console.log(error);
   }
 }
 
-async function findStateAbbreviation(state) {
-  try {
-    const response = import("./locations/state-names.json");
-    const states = await response;
-    const abbreviation = await findStateAbbrByValue(state, states);
-
+function findStateAbbreviation(state) {
+    const abbreviation = findStateAbbrByValue(state);
     return abbreviation;
-  } catch (error) {
-    return error;
-  }
 }
 
-async function findStateAbbrByValue(state, stateList) {
-  const stateName = await Object.keys(stateList).find(
+function findStateAbbrByValue(state) {
+  const stateName = Object.keys(stateList).find(
     (key) => stateList[key] === state
   );
   return stateName;

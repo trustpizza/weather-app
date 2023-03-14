@@ -1,3 +1,5 @@
+import {searchForCity, findStateAbbreviation} from "./api-calls"
+
 function kelvinToFahrenheit(k) {
   const f = 1.8 * (k - 273) + 32;
 
@@ -49,9 +51,35 @@ function translateMonthIntToString(int) {
   return monthsArray[int];
 }
 
+function prepareSearch(search) {
+
+  const searchSplit = search.split(',');
+  const city = searchSplit[0];
+
+  if (searchSplit.length == 2) {
+    // let stateUnclean = searchSplit[1].split(" ").join('')
+    // stateUnclean = capitalizeFirstLetter(stateUnclean);
+
+    // const state = findStateAbbreviation(capitalizeFirstLetter(stateUnclean));
+
+    // response = searchForCity(city, state)
+  } else if (searchSplit.length == 1) {
+    console.log(city)
+    return searchForCity(city)
+  } else {
+    const error = new Error("Improperly formatted search.  Must be in City,State format")
+    console.log('Error')
+  }
+}
+
+function capitalizeFirstLetter(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1)
+}
+
 export {
   kelvinToFahrenheit,
   getTimeFromDayInstance,
   translateDayIntToString,
   translateMonthIntToString,
+  prepareSearch
 };

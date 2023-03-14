@@ -1,11 +1,7 @@
 import Magnifying from "../photos/magnify.svg";
 import { weatherDisplay } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
-import {
-  searchForCity,
-  searchForWeather,
-  searchForForecast,
-} from "../api-calls";
+import { prepareSearch } from "../helper-functions";
 import { hideObj } from "./homepage";
 import navbar from "./navbar";
 
@@ -53,11 +49,13 @@ const SearchBar = () => {
     if (searchTarget) {
       // const result = searchForWeather(searchTarget);
       // const result = searchForForecast();
-      const result = searchForCity(searchTarget);
+      const result = prepareSearch(searchTarget);
       result.then((response) => {
         SearchResults.clear();
-        SearchResults.populateResults(response);
-      });
+      SearchResults.populateResults(response);
+      })
+
+      
 
       // searchbar.value = "";
     }

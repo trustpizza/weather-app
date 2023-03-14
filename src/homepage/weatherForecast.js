@@ -97,7 +97,7 @@ function DayForecastFactory(data) {
 
   const dateTime = document.createElement("div");
   dateTime.className =
-    "flex flex-col justify-center items-end font-normal text-md";
+    "flex flex-col justify-start justify-self-start font-normal text-md";
 
   const time = document.createElement("span");
   time.className = "";
@@ -110,7 +110,7 @@ function DayForecastFactory(data) {
   dateTime.append(time, date);
 
   const chanceOfRain = document.createElement("div");
-  chanceOfRain.className = "flex items-center justify-end gap-1";
+  chanceOfRain.className = "flex justify-self-end items-center gap-1";
 
   const chance = document.createElement("span");
   chance.className = "font-normal";

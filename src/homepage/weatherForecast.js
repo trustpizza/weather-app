@@ -1,6 +1,9 @@
 import Sunny from "../photos/sunshine.svg";
 import Raindrop from "../photos/raindrop.svg";
 
+import Left from "../photos/left-arrow.svg";
+import Right from "../photos/right-arrow.svg"
+
 const WeatherForecast = () => {
   const card = document.createElement("div");
   card.className = "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl";
@@ -28,9 +31,20 @@ const ForecasteNavigator = () => {
   nav.className = "flex justify-between items-center";
 
   const leftButton = document.createElement("button");
-  leftButton.className = "rounded-full bg-blue-500 hover:bg-blue-700";
+  leftButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
+  const leftIcon =  new Image();
+  leftIcon.className = 'h-10 w-10'
+  leftIcon.src = Left;
+
+  leftButton.append(leftIcon)
 
   const rightButton = document.createElement("button");
+  rightButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
+  const rightIcon = new Image();
+  rightIcon.className = "h-10 w-10";
+  rightIcon.src = Right;
+
+  rightButton.append(rightIcon)
 
   nav.append(leftButton, rightButton);
   return nav;

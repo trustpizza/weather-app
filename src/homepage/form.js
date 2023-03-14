@@ -52,10 +52,8 @@ const SearchBar = () => {
       const result = prepareSearch(searchTarget);
       result.then((response) => {
         SearchResults.clear();
-      SearchResults.populateResults(response);
-      })
-
-      
+        SearchResults.populateResults(response);
+      });
 
       // searchbar.value = "";
     }

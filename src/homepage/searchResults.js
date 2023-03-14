@@ -33,7 +33,7 @@ const SearchResults = CitySearchResultsDisplay();
 
 function CityLink(city) {
   const button = document.createElement("button");
-  let stateAbbreviation = findStateAbbreviation(city.state);
+  const stateAbbreviation = findStateAbbreviation(city.state);
   button.textContent = `${city.name}, ${stateAbbreviation}`;
 
   button.className =

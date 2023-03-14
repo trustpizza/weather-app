@@ -125,7 +125,6 @@ function DayForecastFactory(data) {
   const weatherIcon = new Image();
   weatherIcon.className = "h-7 w-7 fill-current ml-2";
   weatherIcon.src = determineWeatherIcon(data.weather[0].icon);
-  console.log(data.weather[0].icon, data.weather)
 
   const highLowTemp = document.createElement("div");
   highLowTemp.className = "font-normal text-md";

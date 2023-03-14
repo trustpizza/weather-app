@@ -8,7 +8,7 @@ import {
   getTimeFromDayInstance,
   translateDayIntToString,
   translateMonthIntToString,
-  determineWeatherIcon
+  determineWeatherIcon,
 } from "../helper-functions";
 
 const WeatherOfCity = () => {
@@ -142,7 +142,6 @@ const WeatherOfCity = () => {
 
 function populateWeatherDisplay(objs, data) {
   // update the data
-  console.log(data);
   objs.cityName.textContent = `${data.name}, ${data.state}`;
   objs.date.textContent = determineTime(data.dt * 1000);
   objs.weatherIcon.src = determineWeatherIcon(data.weather[0].icon);
@@ -154,8 +153,6 @@ function populateWeatherDisplay(objs, data) {
   objs.sunset.textContent = getTimeFromDayInstance(data.sys.sunset * 1000);
   objs.wind.textContent = determineWindSpeedAndDirection(data.wind);
   objs.humidity.textContent = `${data.main.humidity}%`;
-  // console.log(data);
-  // console.log(objs);
 }
 
 function determineWindSpeedAndDirection(wind) {

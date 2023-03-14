@@ -1,4 +1,4 @@
-const stateList = require("./locations/state-names.json")
+const stateList = require("./locations/state-names.json");
 
 const apiKey = "81b221d07baad085936c6ec899f5fa86"; // This can be public since it's already a public API key
 
@@ -22,7 +22,6 @@ async function searchForRadar(lon, lat) {
   const z = 25;
   const x = 20;
   const y = 20;
-  console.log(x, y);
   try {
     const response = await fetch(
       `https://tile.openweathermap.org/map/precipitation_new/${z}/${x}/${y}.png?appid=${apiKey}`,
@@ -54,7 +53,6 @@ async function searchForForecast(lon, lat) {
 }
 
 async function searchForCity(cityName, stateCode = "MA") {
-  console.log(cityName, stateCode)
   const countryCode = "US";
 
   try {
@@ -69,8 +67,8 @@ async function searchForCity(cityName, stateCode = "MA") {
 }
 
 function findStateAbbreviation(state) {
-    const abbreviation = findStateAbbrByValue(state);
-    return abbreviation;
+  const abbreviation = findStateAbbrByValue(state);
+  return abbreviation;
 }
 
 function findStateAbbrByValue(state) {

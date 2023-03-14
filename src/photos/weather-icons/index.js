@@ -18,24 +18,24 @@ import mistD from "./50d.svg";
 import mistN from "./50n.svg";
 
 const weatherIcons = {
-    "01d": clearSkyD,
-    "01n": clearSkyN,
-    "02d": fewCloudsD,
-    "02n": fewCloudsN,
-    "03d": scatteredCloudsD,
-    "03n": scatteredCloudsN,
-    "04d": brokenCloudsD,
-    "04n": brokenCloudsN,
-    "09d": showerD,
-    "09n": showerN,
-    "10d": rainD,
-    "10n": rainN,
-    "11d": thunderstormD,
-    "11n": thunderstormN,
-    "13d": snowD,
-    "13n": snowN,
-    "50d": mistD,
-    "50n": mistN
-}
+  "01d": clearSkyD,
+  "01n": clearSkyN,
+  "02d": fewCloudsD,
+  "02n": fewCloudsN,
+  "03d": scatteredCloudsD,
+  "03n": scatteredCloudsN,
+  "04d": brokenCloudsD,
+  "04n": brokenCloudsN,
+  "09d": showerD,
+  "09n": showerN,
+  "10d": rainD,
+  "10n": rainN,
+  "11d": thunderstormD,
+  "11n": thunderstormN,
+  "13d": snowD,
+  "13n": snowN,
+  "50d": mistD,
+  "50n": mistN,
+};
 
 export default weatherIcons;

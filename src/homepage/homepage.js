@@ -12,7 +12,8 @@ const searchbar = SearchBar();
 
 const homepage = () => {
   const display = document.createElement("div");
-  display.className = "w-full flex flex-col justify-center items-center flex-grow";
+  display.className =
+    "w-full flex flex-col justify-center items-center flex-grow";
 
   const title = document.createElement("h1");
   title.textContent = "Weather the Storm";

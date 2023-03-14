@@ -40,7 +40,7 @@ function RadioButtonFactory(city, type) {
   const button = document.createElement("button");
   button.className =
     "flex-grow bg-blue-500 hover:bg-blue-700 font-medium text-white p-1 border border-blue-500 hover:border-transparent rounded";
-  let stateAbbreviation = findStateAbbreviation(city.state);
+  const stateAbbreviation = findStateAbbreviation(city.state);
 
   if (type === "weather") {
     button.textContent = "Weather";
@@ -77,7 +77,7 @@ function RadioButtonFactory(city, type) {
     // button.addEventListener('click', () => {
     //     // const radarData = searchForRadar(coord.lat, coord.lon)
     //     // radarData.then((response) => {
-    //     //     console.log(response)
+    //
     //     // })
     //     // Disabled temporarily
     // })

@@ -11,7 +11,7 @@ const WeatherForecast = () => {
   const build = () => {
     const navigator = ForecastNavigator();
     card.appendChild(navigator);
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 5; i++) {
       const day = DayForecastFactory();
       card.appendChild(day);
     }
@@ -41,7 +41,7 @@ const ForecastNavigator = () => {
   const rightButton = document.createElement("button");
   rightButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
   const rightIcon = new Image();
-  rightIcon.className = "h-8 w-7=8";
+  rightIcon.className = "h-8 w-8";
   rightIcon.src = Right;
 
   rightButton.append(rightIcon)

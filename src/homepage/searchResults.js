@@ -1,6 +1,11 @@
 import { searchbar, showObj } from "./homepage";
 import { searchForWeather, findStateAbbreviation } from "../api-calls";
-import { displayContent, weatherDisplay, weatherForecast, weatherOfCity } from "./weatherDataDisplay";
+import {
+  displayContent,
+  weatherDisplay,
+  weatherForecast,
+  weatherOfCity,
+} from "./weatherDataDisplay";
 import navbar from "./navbar";
 
 const CitySearchResultsDisplay = () => {
@@ -46,7 +51,7 @@ function CityLink(city) {
       navbar.populate(city);
 
       displayContent.clear();
-      displayContent.addChild(weatherOfCity.card)
+      displayContent.addChild(weatherOfCity.card);
     });
 
     showObj(weatherDisplay);

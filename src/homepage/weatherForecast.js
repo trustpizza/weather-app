@@ -8,21 +8,19 @@ import { weatherForecast } from "./weatherDataDisplay";
 import {
   getTimeFromDayInstance,
   kelvinToFahrenheit,
-  translateDayIntToString
-} from "../helper-functions"
+  translateDayIntToString,
+} from "../helper-functions";
 
 const WeatherForecast = () => {
   const card = document.createElement("div");
   card.className =
     "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl overflow-y-auto max-h-96 md:max-h-none";
-  
-  
-  const update = (data, start = 0) => {
 
+  const update = (data, start = 0) => {
     const navigator = ForecastNavigator(data, start);
     card.appendChild(navigator);
 
-    for (let i = start; i < (start+5); i++) {
+    for (let i = start; i < start + 5; i++) {
       const day = DayForecastFactory(data[i]);
       card.appendChild(day);
     }
@@ -44,14 +42,14 @@ const ForecastNavigator = (data, start) => {
   const leftButton = document.createElement("button");
   leftButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
   if (start !== 0) {
-    leftButton.addEventListener('click', () => {
+    leftButton.addEventListener("click", () => {
       weatherForecast.clear();
-      weatherForecast.update(data, start-5)
-    })
+      weatherForecast.update(data, start - 5);
+    });
   } else {
-    leftButton.classList.add('hidden');
+    leftButton.classList.add("hidden");
   }
- 
+
   const leftIcon = new Image();
   leftIcon.className = "h-8 w-8";
   leftIcon.src = Left;
@@ -66,12 +64,12 @@ const ForecastNavigator = (data, start) => {
   rightButton.className = "self-end rounded-lg bg-blue-500 hover:bg-blue-700";
 
   if (start + 5 !== 40) {
-    rightButton.addEventListener('click', () => {
+    rightButton.addEventListener("click", () => {
       weatherForecast.clear();
-      weatherForecast.update(data, start +5)
-    })
+      weatherForecast.update(data, start + 5);
+    });
   } else {
-    rightButton.classList.add('hidden')
+    rightButton.classList.add("hidden");
   }
 
   const rightIcon = new Image();
@@ -84,8 +82,8 @@ const ForecastNavigator = (data, start) => {
 
   rightButton.append(rightIcon, rightText);
 
-  const blockerDiv = document.createElement('div');
-  blockerDiv.className = "flex-grow"
+  const blockerDiv = document.createElement("div");
+  blockerDiv.className = "flex-grow";
 
   nav.append(leftButton, blockerDiv, rightButton);
   return nav;
@@ -95,7 +93,7 @@ function DayForecastFactory(data) {
   const card = document.createElement("div");
   card.className = "grid grid-cols-4 items-center justify-items-center";
 
-  const day = new Date(data.dt * 1000)
+  const day = new Date(data.dt * 1000);
 
   const dateTime = document.createElement("div");
   dateTime.className =
@@ -127,7 +125,6 @@ function DayForecastFactory(data) {
   const weatherIcon = new Image();
   weatherIcon.className = "h-6 w-6 fill-current";
   weatherIcon.src = Sunny;
-
 
   const highLowTemp = document.createElement("div");
   highLowTemp.className = "font-normal text-md";

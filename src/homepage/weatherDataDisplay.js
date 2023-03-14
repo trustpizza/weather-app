@@ -4,7 +4,7 @@ import WeatherForecast from "./weatherForecast";
 
 const WeatherDataDisplay = () => {
   const container = document.createElement("div");
-  container.className = "flex flex-col gap-2 rounded w-full max-w-sm";
+  container.className = "flex flex-col gap-2 rounded w-full max-w-sm hidden";
 
   return container;
 };

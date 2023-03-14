@@ -22,4 +22,4 @@ const display = homepage();
 const footer = Footer();
 
 content.append(display);
-// content.appendChild(footer);
+content.appendChild(footer);

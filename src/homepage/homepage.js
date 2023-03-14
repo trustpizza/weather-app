@@ -9,10 +9,6 @@ import SearchResults from "./searchResults";
 import navbar from "./navbar";
 
 const searchbar = SearchBar();
-// weatherForecast.build();
-// displayContent.addChild(weatherForecast.card);
-
-// weatherDisplay.append(navbar.nav, displayContent)
 
 const homepage = () => {
   const display = document.createElement("div");

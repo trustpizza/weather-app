@@ -93,13 +93,13 @@ const ForecastNavigator = (data, start) => {
 
 function DayForecastFactory(data) {
   const card = document.createElement("div");
-  card.className = "flex justify-between items-center";
+  card.className = "grid grid-cols-4 items-center justify-items-center";
 
   const day = new Date(data.dt * 1000)
 
   const dateTime = document.createElement("div");
   dateTime.className =
-    "flex flex-col justify-center items-center font-normal text-md";
+    "flex flex-col justify-center items-end font-normal text-md";
 
   const time = document.createElement("span");
   time.className = "";
@@ -127,6 +127,7 @@ function DayForecastFactory(data) {
   const weatherIcon = new Image();
   weatherIcon.className = "h-6 w-6 fill-current";
   weatherIcon.src = Sunny;
+
 
   const highLowTemp = document.createElement("div");
   highLowTemp.className = "font-normal text-md";

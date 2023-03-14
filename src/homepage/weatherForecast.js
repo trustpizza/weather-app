@@ -39,15 +39,19 @@ const WeatherForecast = () => {
 
 const ForecastNavigator = (data, start) => {
   const nav = document.createElement("div");
-  nav.className = "flex justify-between items-center";
+  nav.className = "flex";
 
   const leftButton = document.createElement("button");
   leftButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
-  leftButton.addEventListener('click', () => {
-    weatherForecast.clear();
-    weatherForecast.update(data, start+5)
-  })
-
+  if (start !== 0) {
+    leftButton.addEventListener('click', () => {
+      weatherForecast.clear();
+      weatherForecast.update(data, start-5)
+    })
+  } else {
+    leftButton.classList.add('hidden');
+  }
+ 
   const leftIcon = new Image();
   leftIcon.className = "h-8 w-8";
   leftIcon.src = Left;
@@ -59,7 +63,16 @@ const ForecastNavigator = (data, start) => {
   leftButton.append(leftIcon, leftText);
 
   const rightButton = document.createElement("button");
-  rightButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
+  rightButton.className = "self-end rounded-lg bg-blue-500 hover:bg-blue-700";
+
+  if (start + 5 !== 40) {
+    rightButton.addEventListener('click', () => {
+      weatherForecast.clear();
+      weatherForecast.update(data, start +5)
+    })
+  } else {
+    rightButton.classList.add('hidden')
+  }
 
   const rightIcon = new Image();
   rightIcon.className = "h-8 w-8";
@@ -71,7 +84,10 @@ const ForecastNavigator = (data, start) => {
 
   rightButton.append(rightIcon, rightText);
 
-  nav.append(leftButton, rightButton);
+  const blockerDiv = document.createElement('div');
+  blockerDiv.className = "flex-grow"
+
+  nav.append(leftButton, blockerDiv, rightButton);
   return nav;
 };
 
@@ -100,7 +116,7 @@ function DayForecastFactory(data) {
 
   const chance = document.createElement("span");
   chance.className = "font-normal";
-  chance.textContent = `${data.pop * 100}%`;
+  chance.textContent = `${Math.round(data.pop * 100)}%`;
 
   const rainIcon = new Image();
   rainIcon.className = "w-6 h-6 fill-current";

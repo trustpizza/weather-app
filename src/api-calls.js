@@ -53,16 +53,14 @@ async function searchForForecast(lon, lat) {
   }
 }
 
-async function searchForCity(city, state = "MA") {
-  const cityName = city;
-  const stateCode = state;
+async function searchForCity(cityName, stateCode = "MA") {
+  console.log(cityName, stateCode)
   const countryCode = "US";
 
   try {
     const response = await fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},${countryCode}&limit=5&appid=${apiKey}`
     );
-
     const city = await response.json();
     return city;
   } catch (error) {

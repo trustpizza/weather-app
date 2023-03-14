@@ -57,12 +57,17 @@ function prepareSearch(search) {
   const city = searchSplit[0];
 
   if (searchSplit.length == 2) {
+    
     let stateUnclean = searchSplit[1].split(" ").join('')
-    stateUnclean = capitalizeFirstLetter(stateUnclean);
 
-    const state = findStateAbbreviation(capitalizeFirstLetter(stateUnclean));
-
-    return searchForCity(city, state)
+    if (stateUnclean.split('').length > 2) {
+      stateUnclean = capitalizeFirstLetter(stateUnclean);
+      const state = findStateAbbreviation(capitalizeFirstLetter(stateUnclean));
+      return searchForCity(city, state)
+    } else {
+      const state = stateUnclean.toUpperCase();
+      return searchForCity(city, state)
+    }
   } else if (searchSplit.length == 1) {
     console.log(city)
     return searchForCity(city)

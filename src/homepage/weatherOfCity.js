@@ -8,11 +8,12 @@ import {
   getTimeFromDayInstance,
   translateDayIntToString,
   translateMonthIntToString,
+  determineWeatherIcon
 } from "../helper-functions";
 
 const WeatherOfCity = () => {
   const card = document.createElement("div");
-  card.className = "flex flex-col bg-white rounded w-full p-4";
+  card.className = "flex flex-col rounded w-full p-4";
 
   // Header of Card
   const cityName = document.createElement("div");
@@ -144,7 +145,7 @@ function populateWeatherDisplay(objs, data) {
   console.log(data);
   objs.cityName.textContent = `${data.name}, ${data.state}`;
   objs.date.textContent = determineTime(data.dt * 1000);
-  objs.weatherIcon.src = Cloudy;
+  objs.weatherIcon.src = determineWeatherIcon(data.weather[0].icon);
   objs.cloudCoverage.textContent = determineCloudiness(data.clouds.all);
   objs.highTemp.textContent = kelvinToFahrenheit(data.main.temp_max);
   objs.lowTemp.textContent = kelvinToFahrenheit(data.main.temp_min);

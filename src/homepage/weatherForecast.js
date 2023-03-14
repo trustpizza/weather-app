@@ -1,4 +1,3 @@
-import Sunny from "../photos/weather-icons/clearsky.png";
 import Raindrop from "../photos/raindrop.svg";
 
 import Left from "../photos/left-arrow.svg";
@@ -6,6 +5,7 @@ import Right from "../photos/right-arrow.svg";
 import { weatherForecast } from "./weatherDataDisplay";
 
 import {
+  determineWeatherIcon,
   getTimeFromDayInstance,
   kelvinToFahrenheit,
   translateDayIntToString,
@@ -14,7 +14,7 @@ import {
 const WeatherForecast = () => {
   const card = document.createElement("div");
   card.className =
-    "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl overflow-y-auto max-h-96 md:max-h-none";
+    "flex flex-col space-y-6 w-full bg-inherit p-4 rounded-xl overflow-y-auto max-h-96 md:max-h-none";
 
   const update = (data, start = 0) => {
     const navigator = ForecastNavigator(data, start);
@@ -110,22 +110,22 @@ function DayForecastFactory(data) {
   dateTime.append(time, date);
 
   const chanceOfRain = document.createElement("div");
-  chanceOfRain.className = "flex justify-self-end items-center gap-1";
+  chanceOfRain.className = "flex justify-self-end items-center";
 
   const chance = document.createElement("span");
   chance.className = "font-normal";
   chance.textContent = `${Math.round(data.pop * 100)}%`;
 
   const rainIcon = new Image();
-  rainIcon.className = "w-6 h-6 fill-current";
+  rainIcon.className = "w-7 h-7 fill-current";
   rainIcon.src = Raindrop;
 
   chanceOfRain.append(chance, rainIcon);
 
   const weatherIcon = new Image();
-  weatherIcon.className = "h-6 w-6 fill-current ml-8";
-  weatherIcon.src = Sunny;
-  console.log(data)
+  weatherIcon.className = "h-7 w-7 fill-current ml-2";
+  weatherIcon.src = determineWeatherIcon(data.weather[0].icon);
+  console.log(data.weather[0].icon, data.weather)
 
   const highLowTemp = document.createElement("div");
   highLowTemp.className = "font-normal text-md";

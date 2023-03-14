@@ -1,5 +1,5 @@
 import {searchForCity, findStateAbbreviation} from "./api-calls"
-import {} from "./photos/weather-icons/01n.png"
+import weatherIcons from "./photos/weather-icons/"
 
 import Cloudy from "./photos/weather-cloudy.svg";
 import Sunrise from "./photos/sunrise.svg";
@@ -87,8 +87,8 @@ function capitalizeFirstLetter(word) {
   return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
-function determineWeatherIcon(weatherCode, time) {
-
+function determineWeatherIcon(weatherCode) {
+  return weatherIcons[weatherCode];
 }
 
 export {

@@ -13,7 +13,7 @@ const weatherDisplay = WeatherDataDisplay();
 
 const DisplayContent = () => {
   const container = document.createElement("div");
-  container.className = "bg-white rounded w-full";
+  container.className = "bg-white bg-white rounded w-full";
 
   const clear = () => {
     while (container.firstChild) {

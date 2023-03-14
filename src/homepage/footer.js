@@ -4,7 +4,7 @@ import XML from "../photos/xml.svg";
 const footer = () => {
   const container = document.createElement("footer");
   container.className =
-    "p-2 bg-white absolute bottom-0 w-full shadow md:flex md:items-center md:justify-between md:p-4 dark:bg-gray-800";
+    "p-2 bg-white absolute bottom-0 w-screen shadow md:flex md:items-center md:justify-between md:p-4 dark:bg-gray-800";
 
   const linkSection = document.createElement("div");
   linkSection.className = "flex items-center justify-between w-full";

@@ -14,9 +14,9 @@ const Navbar = () => {
 
     const weatherButton = RadioButtonFactory(city, "weather");
     const forecastButton = RadioButtonFactory(city, "forecast");
-    const radarButton = RadioButtonFactory(city, "radar");
+    // const radarButton = RadioButtonFactory(city, "radar");
 
-    nav.append(weatherButton, forecastButton, radarButton);
+    nav.append(weatherButton, forecastButton);
   };
 
   const clear = () => {

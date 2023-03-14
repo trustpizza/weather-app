@@ -21,4 +21,5 @@ const content = document.getElementById("content");
 const display = homepage();
 const footer = Footer();
 
-content.append(display, footer);
+content.append(display);
+// content.appendChild(footer);

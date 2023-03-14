@@ -1,8 +1,11 @@
 import Cloudy from "../photos/weather-cloudy.svg";
+import Sunny from "../photos/sunshine.svg"
 import Sunrise from "../photos/sunrise.svg";
 import Sunset from "../photos/sunset.svg";
 import Wind from "../photos/wind.svg";
 import Humidity from "../photos/humidity.svg";
+import Raindrop from "../photos/raindrop.svg"
+
 import navbar from "./navbar";
 
 const WeatherDataDisplay = () => {
@@ -328,6 +331,8 @@ const WeatherForecast = () => {
   card.className = "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl";
 
   const build = () => {
+    const navigator = ForecasteNavigator();
+    card.appendChild(navigator)
     for (let i = 0; i < 8; i++) {
       const day = DayForecastFactory();
       card.appendChild(day);
@@ -341,6 +346,19 @@ const WeatherForecast = () => {
   }
 
   return { card, build, reset };
+}
+
+const ForecasteNavigator = () => {
+  const nav = document.createElement('div');
+  nav.className = "flex justify-between items-center"
+
+  const leftButton = document.createElement('button');
+  leftButton.className = "rounded-full bg-blue-500 hover:bg-blue-700"
+  
+  const rightButton = document.createElement('button');
+
+  nav.append(leftButton, rightButton)
+  return nav;
 }
 
 function DayForecastFactory() {
@@ -360,11 +378,13 @@ function DayForecastFactory() {
 
   const rainIcon = new Image();
   rainIcon.className = "w-6 h-6 fill-current";
+  rainIcon.src = Raindrop;
 
   chanceOfRain.append(chance, rainIcon)
 
   const weatherIcon = new Image();
   weatherIcon.className = "h-6 w-6 fill-current";
+  weatherIcon.src = Sunny
 
   const highLowTemp = document.createElement('div');
   highLowTemp.className = "font-normal text-md";

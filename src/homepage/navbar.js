@@ -6,7 +6,7 @@ import { findStateAbbreviation } from "../api-calls";
 
 const Navbar = () => {
   const nav = document.createElement("nav");
-  nav.className = "flex gap-2 bg-white rounded w-full p-4";
+  nav.className = "flex gap-2 bg-white rounded w-full p-2";
   
   const populate = (city) => {
     console.log(city)
@@ -31,7 +31,7 @@ const Navbar = () => {
 function RadioButtonFactory(city, type) {
   const button = document.createElement("button");
   button.className = 
-    "flex-grow bg-blue-500 hover:bg-blue-700 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded";
+    "flex-grow bg-blue-500 hover:bg-blue-700 font-medium text-white p-1 border border-blue-500 hover:border-transparent rounded";
   let stateAbbreviation = findStateAbbreviation(city.state);
   stateAbbreviation.then((state) => {
     stateAbbreviation = state;

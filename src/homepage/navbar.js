@@ -68,7 +68,7 @@ function RadioButtonFactory(city, type) {
       const forecastData = searchForForecast(city.lon, city.lat);
 
       forecastData.then((response) => {
-        weatherForecast.update(response);
+        weatherForecast.update(response.list);
 
         displayContent.clear();
         displayContent.addChild(weatherForecast.card);

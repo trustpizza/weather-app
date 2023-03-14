@@ -15,20 +15,15 @@ const WeatherForecast = () => {
   const card = document.createElement("div");
   card.className =
     "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl overflow-y-auto max-h-96 md:max-h-none";
+  
+  
+  const update = (data, start = 0) => {
 
-  const update = (data) => {
-    const navigator = ForecastNavigator();
+    const navigator = ForecastNavigator(data, start);
     card.appendChild(navigator);
 
-    const weatherForecastDays = [];
-
-    for (let i = 0; i < data.list.length; i++) {
-      weatherForecastDays.push(data.list[i]);
-    }
-
-    for (let i = 0; i < 5; i++) {
-      const day = DayForecastFactory(data.list[i]);
-      console.log(day, data);
+    for (let i = start; i < (start+5); i++) {
+      const day = DayForecastFactory(data[i]);
       card.appendChild(day);
     }
   };
@@ -42,12 +37,16 @@ const WeatherForecast = () => {
   return { card, update, clear };
 };
 
-const ForecastNavigator = () => {
+const ForecastNavigator = (data, start) => {
   const nav = document.createElement("div");
   nav.className = "flex justify-between items-center";
 
   const leftButton = document.createElement("button");
   leftButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
+  leftButton.addEventListener('click', () => {
+    weatherForecast.clear();
+    weatherForecast.update(data, start+5)
+  })
 
   const leftIcon = new Image();
   leftIcon.className = "h-8 w-8";

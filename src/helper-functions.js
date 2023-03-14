@@ -1,4 +1,10 @@
 import {searchForCity, findStateAbbreviation} from "./api-calls"
+import {} from "./photos/weather-icons/01n.png"
+
+import Cloudy from "./photos/weather-cloudy.svg";
+import Sunrise from "./photos/sunrise.svg";
+import Wind from "./photos/wind.svg";
+
 
 function kelvinToFahrenheit(k) {
   const f = 1.8 * (k - 273) + 32;
@@ -81,10 +87,15 @@ function capitalizeFirstLetter(word) {
   return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
+function determineWeatherIcon(weatherCode, time) {
+
+}
+
 export {
   kelvinToFahrenheit,
   getTimeFromDayInstance,
   translateDayIntToString,
   translateMonthIntToString,
-  prepareSearch
+  prepareSearch,
+  determineWeatherIcon
 };

@@ -1,4 +1,4 @@
-import Sunny from "../photos/sunshine.svg";
+import Sunny from "../photos/weather-icons/clearsky.png";
 import Raindrop from "../photos/raindrop.svg";
 
 import Left from "../photos/left-arrow.svg";
@@ -123,8 +123,9 @@ function DayForecastFactory(data) {
   chanceOfRain.append(chance, rainIcon);
 
   const weatherIcon = new Image();
-  weatherIcon.className = "h-6 w-6 fill-current";
+  weatherIcon.className = "h-6 w-6 fill-current ml-8";
   weatherIcon.src = Sunny;
+  console.log(data)
 
   const highLowTemp = document.createElement("div");
   highLowTemp.className = "font-normal text-md";
@@ -134,4 +135,5 @@ function DayForecastFactory(data) {
 
   return card;
 }
+
 export default WeatherForecast;

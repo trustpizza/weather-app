@@ -1,8 +1,7 @@
 import {
-  weatherDisplay,
   displayContent,
-  WeatherOfCity,
   weatherOfCity,
+  weatherForecast
 } from "./weatherDataDisplay";
 import {
   searchForForecast,
@@ -52,20 +51,27 @@ function RadioButtonFactory(city, type) {
     button.addEventListener("click", () => {
       displayContent.clear();
       const weatherData = searchForWeather(city.lon, city.lat);
-      console.log(weatherData);
+
       weatherData.then((response) => {
         response.state = stateAbbreviation;
         weatherOfCity.update(response, city);
+
+        displayContent.clear();
         displayContent.addChild(weatherOfCity.card);
       });
     });
   } else if (type === "forecast") {
     button.textContent = "Forecast";
     button.addEventListener("click", () => {
+      displayContent.clear();
+      weatherForecast.clear();
       const forecastData = searchForForecast(city.lon, city.lat);
+
       forecastData.then((response) => {
-        console.log(response);
-        // Load Forecast
+        weatherForecast.update(response)
+
+        displayContent.clear();
+        displayContent.addChild(weatherForecast.card)
       });
     });
   } else if (type === "radar") {

@@ -8,22 +8,24 @@ const WeatherForecast = () => {
   const card = document.createElement("div");
   card.className = "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl overflow-y-auto max-h-96 md:max-h-none";
 
-  const build = () => {
+  const update = (data) => {
     const navigator = ForecastNavigator();
     card.appendChild(navigator);
-    for (let i = 0; i < 5; i++) {
-      const day = DayForecastFactory();
-      card.appendChild(day);
-    }
+
+    console.log(data);
+    // for (let i = 0; i < 5; i++) {
+    //   const day = DayForecastFactory(data.list[i]);
+    //   card.appendChild(day);
+    // }
   };
 
-  const reset = () => {
+  const clear = () => {
     while (card.firstChild) {
       card.removeChild(card.firstChild);
     }
   };
 
-  return { card, build, reset };
+  return { card, update, clear };
 };
 
 const ForecastNavigator = () => {
@@ -32,19 +34,29 @@ const ForecastNavigator = () => {
 
   const leftButton = document.createElement("button");
   leftButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
+
   const leftIcon =  new Image();
   leftIcon.className = 'h-8 w-8'
   leftIcon.src = Left;
 
-  leftButton.append(leftIcon)
+  const leftText = document.createElement('p');
+  leftText.classList.add('sr-only');
+  leftText.textContent = "See Next"
+
+  leftButton.append(leftIcon, leftText)
 
   const rightButton = document.createElement("button");
   rightButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
+  
   const rightIcon = new Image();
   rightIcon.className = "h-8 w-8";
   rightIcon.src = Right;
 
-  rightButton.append(rightIcon)
+  const rightText = document.createElement('p');
+  rightText.classList.add('sr-only');
+  rightText.textContent = "See Previous"
+
+  rightButton.append(rightIcon, rightText)
 
   nav.append(leftButton, rightButton);
   return nav;

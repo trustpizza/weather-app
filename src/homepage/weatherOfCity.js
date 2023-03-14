@@ -119,7 +119,6 @@ const WeatherOfCity = () => {
     };
     // unhide
     // hideOrShowObj(weatherDisplay)
-    console.log(data);
     populateWeatherDisplay(cardObjs, data);
   };
 

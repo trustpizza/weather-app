@@ -3,7 +3,7 @@ import {
   weatherDisplay,
   displayContent,
   weatherOfCity,
-  weatherForecast
+  weatherForecast,
 } from "./weatherDataDisplay";
 import SearchResults from "./searchResults";
 import navbar from "./navbar";

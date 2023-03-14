@@ -1,8 +1,7 @@
 import { searchbar, showObj } from "./homepage";
-import { searchForWeather } from "../api-calls";
+import { searchForWeather, findStateAbbreviation } from "../api-calls";
 import { weatherDisplay, weatherOfCity } from "./weatherDataDisplay";
 import navbar from "./navbar";
-import {findStateAbbreviation} from "../api-calls"
 
 const CitySearchResultsDisplay = () => {
   const resultsContainer = document.createElement("div");

@@ -88,4 +88,11 @@ async function findStateAbbrByValue(state, stateList) {
   return stateName;
 }
 
-export { searchForWeather, searchForForecast, searchForCity, searchForRadar, findStateAbbrByValue, findStateAbbreviation };
+export {
+  searchForWeather,
+  searchForForecast,
+  searchForCity,
+  searchForRadar,
+  findStateAbbrByValue,
+  findStateAbbreviation,
+};

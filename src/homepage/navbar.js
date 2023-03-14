@@ -1,7 +1,7 @@
 import {
   displayContent,
   weatherOfCity,
-  weatherForecast
+  weatherForecast,
 } from "./weatherDataDisplay";
 import {
   searchForForecast,
@@ -68,10 +68,10 @@ function RadioButtonFactory(city, type) {
       const forecastData = searchForForecast(city.lon, city.lat);
 
       forecastData.then((response) => {
-        weatherForecast.update(response)
+        weatherForecast.update(response);
 
         displayContent.clear();
-        displayContent.addChild(weatherForecast.card)
+        displayContent.addChild(weatherForecast.card);
       });
     });
   } else if (type === "radar") {

@@ -2,21 +2,35 @@ import Sunny from "../photos/sunshine.svg";
 import Raindrop from "../photos/raindrop.svg";
 
 import Left from "../photos/left-arrow.svg";
-import Right from "../photos/right-arrow.svg"
+import Right from "../photos/right-arrow.svg";
+import { weatherForecast } from "./weatherDataDisplay";
+
+import {
+  getTimeFromDayInstance,
+  kelvinToFahrenheit,
+  translateDayIntToString
+} from "../helper-functions"
 
 const WeatherForecast = () => {
   const card = document.createElement("div");
-  card.className = "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl overflow-y-auto max-h-96 md:max-h-none";
+  card.className =
+    "flex flex-col space-y-6 w-full bg-white p-4 rounded-xl overflow-y-auto max-h-96 md:max-h-none";
 
   const update = (data) => {
     const navigator = ForecastNavigator();
     card.appendChild(navigator);
 
-    console.log(data);
-    // for (let i = 0; i < 5; i++) {
-    //   const day = DayForecastFactory(data.list[i]);
-    //   card.appendChild(day);
-    // }
+    const weatherForecastDays = [];
+
+    for (let i = 0; i < data.list.length; i++) {
+      weatherForecastDays.push(data.list[i]);
+    }
+
+    for (let i = 0; i < 5; i++) {
+      const day = DayForecastFactory(data.list[i]);
+      console.log(day, data);
+      card.appendChild(day);
+    }
   };
 
   const clear = () => {
@@ -35,56 +49,59 @@ const ForecastNavigator = () => {
   const leftButton = document.createElement("button");
   leftButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
 
-  const leftIcon =  new Image();
-  leftIcon.className = 'h-8 w-8'
+  const leftIcon = new Image();
+  leftIcon.className = "h-8 w-8";
   leftIcon.src = Left;
 
-  const leftText = document.createElement('p');
-  leftText.classList.add('sr-only');
-  leftText.textContent = "See Next"
+  const leftText = document.createElement("p");
+  leftText.classList.add("sr-only");
+  leftText.textContent = "See Next";
 
-  leftButton.append(leftIcon, leftText)
+  leftButton.append(leftIcon, leftText);
 
   const rightButton = document.createElement("button");
   rightButton.className = "rounded-lg bg-blue-500 hover:bg-blue-700";
-  
+
   const rightIcon = new Image();
   rightIcon.className = "h-8 w-8";
   rightIcon.src = Right;
 
-  const rightText = document.createElement('p');
-  rightText.classList.add('sr-only');
-  rightText.textContent = "See Previous"
+  const rightText = document.createElement("p");
+  rightText.classList.add("sr-only");
+  rightText.textContent = "See Previous";
 
-  rightButton.append(rightIcon, rightText)
+  rightButton.append(rightIcon, rightText);
 
   nav.append(leftButton, rightButton);
   return nav;
 };
 
-function DayForecastFactory() {
+function DayForecastFactory(data) {
   const card = document.createElement("div");
   card.className = "flex justify-between items-center";
 
-  const dateTime = document.createElement("div");
-  dateTime.className = "flex flex-col justify-center items-center font-normal text-md";
+  const day = new Date(data.dt * 1000)
 
-  const time = document.createElement('span');
+  const dateTime = document.createElement("div");
+  dateTime.className =
+    "flex flex-col justify-center items-center font-normal text-md";
+
+  const time = document.createElement("span");
   time.className = "";
-  time.textContent = "10:00 PM"
+  time.textContent = getTimeFromDayInstance(data.dt * 1000);
 
   const date = document.createElement("span");
   date.className = "";
-  date.textContent = "Friday";
+  date.textContent = translateDayIntToString(day.getMonth());
 
-  dateTime.append(time, date)
+  dateTime.append(time, date);
 
   const chanceOfRain = document.createElement("div");
   chanceOfRain.className = "flex items-center justify-end gap-1";
 
   const chance = document.createElement("span");
   chance.className = "font-normal";
-  chance.textContent = "100%";
+  chance.textContent = `${data.pop * 100}%`;
 
   const rainIcon = new Image();
   rainIcon.className = "w-6 h-6 fill-current";
@@ -98,7 +115,7 @@ function DayForecastFactory() {
 
   const highLowTemp = document.createElement("div");
   highLowTemp.className = "font-normal text-md";
-  highLowTemp.textContent = "39° / 52°";
+  highLowTemp.textContent = `${kelvinToFahrenheit(data.main.temp)}`;
 
   card.append(dateTime, chanceOfRain, weatherIcon, highLowTemp);
 

@@ -14,24 +14,21 @@ function kelvinToFahrenheit(k) {
 function getTimeFromDayInstance(int) {
   const date = new Date(int);
   const time = date.toLocaleTimeString();
-  const removeSecondsArr = time.split("");
+  const amOrPm = time.split(":")[time.split(":").length -1]
+  const returnValue = `${time.split(":")[0]} ${amOrPm.split(" ")[1]}`;
 
-  if (removeSecondsArr.length > 10) {
-    removeSecondsArr.splice(5, 3);
-    return removeSecondsArr.join("");
-  }
-  removeSecondsArr.splice(4, 3);
-  return removeSecondsArr.join("");
+  console.log(returnValue, time.split(":"))
+  return returnValue;
 }
 function translateDayIntToString(int) {
   const daysArray = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
   ];
 
   return daysArray[int];

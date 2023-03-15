@@ -105,7 +105,7 @@ function DayForecastFactory(data) {
 
   const date = document.createElement("span");
   date.className = "";
-  date.textContent = translateDayIntToString(day.getMonth());
+  date.textContent = translateDayIntToString(day.getDay());
 
   dateTime.append(time, date);
 
